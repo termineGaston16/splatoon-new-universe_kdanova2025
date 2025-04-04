@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.3.0",
     "@types/react-dom": "^19.1.1",
     "typescript": "~5.7.2",
     "vite": "6.2.0"
@@ -17,6 +19,7 @@
     "@vitejs/plugin-react": "4.3.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-router-dom": "7.5.0"
+    "react-router-dom": "7.5.0",
+    "vitest": "^3.1.1"
   }
 }
