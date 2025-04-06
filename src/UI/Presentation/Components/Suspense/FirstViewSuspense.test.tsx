@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import FirstViewSuspense from './FirstViewSuspense';
 
 describe("FirstViewSuspense", () => {
@@ -12,5 +12,13 @@ describe("FirstViewSuspense", () => {
         vi.clearAllMocks();
     })
 
-    it('Rne')
+    it('Renderizar el Logo de carga mientras se monta el componente.', () => {
+        const logo = screen.getByRole('img', { name: /logo.*carga/i })
+        expect(logo).toBeInTheDocument();
+    })
+
+    it('Renderizar el mensaje mientras se monta el componente.', () => {
+        const message = screen.getByText(/.*recursos/i)
+        expect(message).toBeInTheDocument();
+    })
 })

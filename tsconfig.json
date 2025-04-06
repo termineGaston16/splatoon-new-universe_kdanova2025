@@ -10,7 +10,8 @@
     ],
     "skipLibCheck": true,
     "types": [
-      "vitest/globals"
+      "vitest/globals",
+      "@testing-library/jest-dom"
     ],
     /* Bundler mode */
     "moduleResolution": "bundler",
