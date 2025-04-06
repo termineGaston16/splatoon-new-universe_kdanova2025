@@ -54,7 +54,9 @@ describe('Offline', () => {
         vi.useRealTimers(); // Limpiar al final
     });
 
+    it('Cuando se accede a la página por primera vez por no muestra ninguna alerta del estado del internet', () => {
 
+    })
 })
 
 
