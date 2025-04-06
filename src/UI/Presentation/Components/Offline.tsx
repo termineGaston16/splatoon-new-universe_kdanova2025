@@ -17,7 +17,7 @@ export default function Offline() {
         <section>
             <img
                 loading="lazy"
-                src="public\pictures\details\alert-message.png"
+                src="public/pictures/details/alert-message.png"
                 alt="Alerta del estado Offline" />
             <p>
                 <span>¡Oh no!</span>

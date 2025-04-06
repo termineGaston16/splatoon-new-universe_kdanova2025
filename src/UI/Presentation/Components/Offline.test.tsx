@@ -53,6 +53,8 @@ describe('Offline', () => {
         restore();
         vi.useRealTimers(); // Limpiar al final
     });
+
+
 })
 
 
