@@ -1,18 +1,37 @@
-interface Props {
-    state?: boolean | undefined
-}
+import { useEffect, useState } from "react";
 
-function AlertInOnline(
-    {
-        state
-    }: Props
-) {
+export default function AlertInOnline() {
+    const [showAlertOnline, setShowAlertOnline] = useState<boolean>(false);
+    const [onlineState, setOnlineState] = useState<boolean>(navigator.onLine);
 
-    if (state === undefined) return null;
+    useEffect(() => {
+        const inOnline = () => {
+            setOnlineState(true);
 
+            setShowAlertOnline(true);
+            setTimeout(() => setShowAlertOnline(false), 3000);
+        };
+
+        const inOffline = () => {
+            setOnlineState(false);
+
+            setShowAlertOnline(true);
+            setTimeout(() => setShowAlertOnline(false), 3000);
+        };
+
+        window.addEventListener('online', inOnline);
+        window.addEventListener('offline', inOffline);
+
+        return () => {
+            window.removeEventListener('online', inOnline);
+            window.removeEventListener('offline', inOffline);
+        };
+    }, []);
+
+    if (!showAlertOnline) return null;
     return (
         <div
-            aria-label={state ? "Conexión obtenida" : "Conexión perdida"}
+            aria-label={onlineState ? "Conexión obtenida" : "Conexión perdida"}
             role="status"
             aria-live="polite"
             aria-atomic="true"
@@ -24,11 +43,8 @@ function AlertInOnline(
                 aria-hidden="true"
             />
             <span>
-                {state ? "¡Conexión Obtenida!" : "¡Conexión Perdida!"}
+                {onlineState ? "¡Conexión Obtenida!" : "¡Conexión Perdida!"}
             </span>
         </div>
-    )
-
+    );
 }
-
-export default AlertInOnline;
