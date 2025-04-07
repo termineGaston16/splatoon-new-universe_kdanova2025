@@ -13,16 +13,26 @@ describe('MainNavbar', () => {
                 <MainNavbar />
                 <Routes>
                     <Route path="/perfil-general=splatoon" element={<div>Splatoon 1</div>} />
+                    <Route path="/perfil-general=splatoon2" element={<div>Splatoon 2</div>} />
+                    <Route path="/perfil-general=splatoon3" element={<div>Splatoon 3</div>} />
                 </Routes>
             </MemoryRouter>
         );
 
-        const log1 = screen.getAllByRole('link', { name: /acceder|redireccionar|navegar|splatoon/i });
+        const paths = screen.getAllByRole('link', { name: /acceder|redireccionar|navegar|splatoon/i });
+        const linksWithExpectedText = [
+            'Splatoon 1',
+            'Splatoon 2',
+            'Splatoon 3'
+        ];
+        const user = userEvent.setup();
 
-        expect(log1[0]).toBeInTheDocument();
+        for (const index in paths) {
+            expect(paths[index]).toBeInTheDocument();
 
-        await userEvent.setup().click(log1[0]);
+            await user.click(paths[index]);
 
-        expect(screen.getByText(/Splatoon 1/i)).toBeInTheDocument();
-    })
+            expect(screen.getByText(linksWithExpectedText[index])).toBeInTheDocument();
+        };
+    });
 })
