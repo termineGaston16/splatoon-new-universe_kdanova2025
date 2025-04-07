@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import DefaultActionableButton from "./DefaultActionableButton";
+import CompleteMainSidebar from "../Components/CompleteMainSidebar";
+import { MemoryRouter } from "react-router-dom";
 
 describe('DefaultActionableButton', () => {
     afterEach(() => vi.clearAllMocks());
@@ -36,9 +38,45 @@ describe('DefaultActionableButton', () => {
             />
         );
 
-        const btn = screen.getByRole('button', { name: /volver/i });
+        const btn = screen.getByRole('button', {
+            name: 'Abrir Menú Lateral'
+        })
         await userEvent.setup().click(btn);
 
         expect(handleClick).toHaveBeenCalledTimes(1);
+    })
+
+    it('Abrir/Cerrar el menú lateral', async () => {
+        render(
+            <MemoryRouter>
+                <CompleteMainSidebar />
+            </MemoryRouter>
+        )
+
+        const btnOpenMenu = screen.getByRole('button', {
+            name: 'Abrir Menú Lateral'
+        })
+
+        expect(
+            screen.queryByRole('link', {
+                name: 'Acceder al perfil Splatoon desde el menú desplegable'
+            })
+        ).not.toBeInTheDocument();
+
+        await userEvent.setup().click(btnOpenMenu);
+
+        expect(
+            screen.getByRole('link', {
+                name: 'Acceder al perfil Splatoon desde el menú desplegable'
+            })
+        ).toBeInTheDocument();
+
+        await userEvent.setup().click(btnOpenMenu);
+
+        expect(
+            screen.queryByRole('link', {
+                name: 'Acceder al perfil Splatoon desde el menú desplegable'
+            })
+        ).not.toBeInTheDocument();
     })
 });

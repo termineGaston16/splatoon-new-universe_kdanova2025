@@ -1,20 +1,21 @@
 interface Props {
     textDefaultActionableButton: string,
     urlDefaultActionableButton?: string,
-    altDefaultActionableButton: string,
+    altDefaultActionableButton?: string,
     onClickDefaultActionableButton: () => void
 }
 
 const DefaultActionableButton = (
     {
         textDefaultActionableButton,
-        urlDefaultActionableButton,
-        altDefaultActionableButton,
+        urlDefaultActionableButton = "",
+        altDefaultActionableButton = "",
         onClickDefaultActionableButton
     }: Props
 ) => {
     return (
         <button
+            aria-label="Abrir Menú Lateral"
             onClick={() => onClickDefaultActionableButton()}
         >
             <img
