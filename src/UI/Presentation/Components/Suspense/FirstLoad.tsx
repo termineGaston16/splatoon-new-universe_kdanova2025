@@ -1,4 +1,4 @@
-export default function FirstViewSuspense() {
+export default function FirstLoad() {
     return (
         <section role="status">
             <img

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import FirstViewSuspense from './FirstViewSuspense';
+import FirstViewSuspense from './FirstLoad';
 
-describe("FirstViewSuspense", () => {
+describe("FirstLoad", () => {
     beforeEach(() => {
         render(
             <FirstViewSuspense />
@@ -21,4 +21,6 @@ describe("FirstViewSuspense", () => {
         const message = screen.getByText(/.*recursos/i)
         expect(message).toBeInTheDocument();
     })
+
+
 })
