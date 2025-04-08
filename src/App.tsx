@@ -16,9 +16,10 @@ export default function App() {
                 urlDefaultActionableButton="public/pictures/icons/squid-icon.png"
             />
 
-
-            <Routes>
-            </Routes>
+            <main>
+                <Routes>
+                </Routes>
+            </main>
         </BrowserRouter>
     )
 }
