@@ -5,16 +5,21 @@ interface Props {
     url: string,
     text: string,
     to: string,
+    ariaLabel: string
 }
 
 const ProfileDataSelector = ({
     alt,
     url,
     text,
-    to
+    to,
+    ariaLabel
 }: Props) => {
     return (
-        <Link to={to}>
+        <Link
+            aria-label={ariaLabel}
+            to={to}
+        >
             <img
                 alt={alt}
                 src={url}

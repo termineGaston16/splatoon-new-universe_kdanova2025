@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ProfileDataSelector from "./ProfileDataSelector";
 import { MemoryRouter } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 
 describe('ProfileDataSelector', () => {
     it('Que el selector renderice la imagen pasada por promt', () => {
@@ -12,6 +13,9 @@ describe('ProfileDataSelector', () => {
                 <ProfileDataSelector
                     alt={alt}
                     url=''
+                    ariaLabel=""
+                    text=""
+                    to=""
                 />
             </MemoryRouter>
         )
@@ -31,6 +35,8 @@ describe('ProfileDataSelector', () => {
                     alt=''
                     url=''
                     text={text}
+                    ariaLabel=""
+                    to=""
                 />
             </MemoryRouter>
         )
@@ -39,27 +45,27 @@ describe('ProfileDataSelector', () => {
         expect(message).toBeInTheDocument();
     })
 
-    // it('Que el selector me mande a la sección esperada', () => {
-    //     const section = '#splatoon-2';
+    it('Que el selector me mande a la sección esperada', async () => {
+        const section = '#splatoon-1';
+        const ariaLabel = 'Acceder a más información'
 
-    //     render(
-    //         <MemoryRouter initialEntries={['/']}>
-    //             <ProfileDataSelector
-    //                 alt=''
-    //                 url=''
-    //                 text=''
-    //                 to={section}
-    //             />
+        render(
+            <MemoryRouter initialEntries={['/']}>
+                <ProfileDataSelector
+                    alt=''
+                    url=''
+                    text=''
+                    to={section}
+                    ariaLabel={ariaLabel}
+                />
+            </MemoryRouter>
+        )
 
-    //             <div>Seccion 1</div>
-    //             <div id="splatoon-2">Seccion 2</div>
-    //         </MemoryRouter>
-    //     )
+        const red = screen.getByRole('link', {
+            name: 'Acceder a más información'
+        })
+        await userEvent.setup().click(red);
 
-    //     const messageOne = screen.getByText('Seccion 1');
-    //     const messageTwo = screen.queryByText('Seccion 2');
-
-    //     expect(messageOne).toBeInTheDocument();
-    //     expect(messageTwo).not.toBeInTheDocument();
-    // })
+        expect(red).toHaveAttribute('href', '/#splatoon-1')
+    })
 })
