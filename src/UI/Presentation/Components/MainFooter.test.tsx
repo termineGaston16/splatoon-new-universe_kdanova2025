@@ -1,65 +1,68 @@
-import { render, screen } from "@testing-library/react"
+import { render, screen, within } from "@testing-library/react"
 import MainFooter from "./MainFooter"
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
 describe('MainFooter', () => {
 
-    // it('Renderizar el texto de advertencia', () => {
-    //     render(
-    //         <MemoryRouter initialEntries={['/']}>
-    //             <Routes>
-    //                 <Route
-    //                     path="/"
-    //                     element={
-    //                         <MainFooter />
-    //                     }
-    //                 />
-    //             </Routes>
-    //         </MemoryRouter>
-    //     )
+    it('Renderizar el texto de advertencia', () => {
+        render(
+            <MemoryRouter initialEntries={['/']}>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <MainFooter />
+                        }
+                    />
+                </Routes>
+            </MemoryRouter>
+        )
 
-    //     expect(screen.getByText(/fan-page/i)).toBeInTheDocument();
-    //     expect(screen.getByText(/KDA\/NOVA/i)).toBeInTheDocument();
-    //     expect(screen.getByText(/sin fines de lucros/i)).toBeInTheDocument();
-    //     expect(screen.getByText('Nintendo')).toBeInTheDocument();
-    // });
+        const paragraph = screen.getByText((_, element) => element?.tagName.toLowerCase() === 'p');
+        const utils = within(paragraph);
 
-    // it('Poder acceder a la galería desde el footer', async () => {
-    //     render(
-    //         <MemoryRouter initialEntries={['/']}>
-    //             <Routes>
-    //                 <Route
-    //                     path="/"
-    //                     element={
-    //                         <MainFooter />
-    //                     }
-    //                 />
-    //                 <Route
-    //                     path="/galeria"
-    //                     element={
-    //                         <div>
-    //                             Estás en la galería
-    //                         </div>
-    //                     }
-    //                 />
-    //             </Routes>
-    //         </MemoryRouter>
-    //     )
+        expect(utils.getByText(/fan-page/i)).toBeInTheDocument();
+        expect(utils.getByText(/KDA\/NOVA/i)).toBeInTheDocument();
+        expect(utils.getByText(/sin fines de lucros/i)).toBeInTheDocument();
+        expect(utils.getByText(/nintendo/i)).toBeInTheDocument();
+    });
 
-    //     const link = screen.getByRole('link', {
-    //         name: content =>
-    //             /ir|acceder|redireccionar/i.test(content)
-    //             && /galería|imagenes|albún/i.test(content)
-    //     })
+    it('Poder acceder a la galería desde el footer', async () => {
+        render(
+            <MemoryRouter initialEntries={['/']}>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <MainFooter />
+                        }
+                    />
+                    <Route
+                        path="/galeria"
+                        element={
+                            <div>
+                                Estás en la galería
+                            </div>
+                        }
+                    />
+                </Routes>
+            </MemoryRouter>
+        )
 
-    //     expect(link).toBeInTheDocument();
+        const link = screen.getByRole('link', {
+            name: content =>
+                /ir|acceder|redireccionar/i.test(content)
+                && /galería|imagenes|albún/i.test(content)
+        })
 
-    //     await userEvent.setup().click(link);
+        expect(link).toBeInTheDocument();
 
-    //     const gallery = screen.getByText('Estás en la galería')
-    //     expect(gallery).toBeInTheDocument();
-    // });
+        await userEvent.setup().click(link);
+
+        const gallery = screen.getByText('Estás en la galería')
+        expect(gallery).toBeInTheDocument();
+    });
 
     // it('Acceder a las páginas oficiales de Nintendo y Splatoon', () => {
 
