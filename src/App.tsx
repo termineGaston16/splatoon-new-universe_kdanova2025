@@ -15,7 +15,6 @@ export default function App() {
                 textDefaultActionableButton="VOLVER"
                 urlDefaultActionableButton="public/pictures/icons/squid-icon.png"
             />
-
             <main>
                 <Routes>
                 </Routes>

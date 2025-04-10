@@ -19,6 +19,7 @@
     "vite": "6.2.0"
   },
   "dependencies": {
+    "@tanstack/react-virtual": "^3.13.6",
     "@vitejs/plugin-react": "4.3.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
