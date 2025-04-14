@@ -19,18 +19,18 @@ const ProfileSection = ({
     return (
         <article>
             <h2>{mainTitle}</h2>
-            {
-                sections.map((section, index) => {
-                    const {
-                        info,
-                        iframeAriaLabel,
-                        iframeUrl,
-                        imgAlt,
-                        imgUrl
-                    } = section;
+            <ul>
+                {
+                    sections.map((section, index) => {
+                        const {
+                            info,
+                            iframeAriaLabel,
+                            iframeUrl,
+                            imgAlt,
+                            imgUrl
+                        } = section;
 
-                    return (
-                        <ul>
+                        return (
                             <li
                                 key={index}>
                                 <ProfileInfoSection
@@ -41,10 +41,10 @@ const ProfileSection = ({
                                     imgUrl={imgUrl}
                                 />
                             </li>
-                        </ul>
-                    )
-                })
-            }
+                        )
+                    })
+                }
+            </ul>
         </article>
     )
 }
