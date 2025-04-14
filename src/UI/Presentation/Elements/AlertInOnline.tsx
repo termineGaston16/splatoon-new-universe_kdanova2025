@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './styles/alertInOnline.css'
 
 export default function AlertInOnline() {
     const [showAlertOnline, setShowAlertOnline] = useState<boolean>(false);
@@ -35,14 +36,16 @@ export default function AlertInOnline() {
             role="status"
             aria-live="polite"
             aria-atomic="true"
+            className="AlertInOnline"
         >
             <img
                 loading="lazy"
                 src="public/pictures/icons/about.png"
                 alt=""
                 aria-hidden="true"
+                className="AlertInOnline__icon"
             />
-            <span>
+            <span className="AlertInOnline__alert">
                 {onlineState ? "¡Conexión Obtenida!" : "¡Conexión Perdida!"}
             </span>
         </div>

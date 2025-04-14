@@ -1,6 +1,6 @@
 import './styles/firstLoad.css'
 
-export default function FirstLoad() {
+export default function () {
     return (
         <section
             role="status"
