@@ -1,1 +1,65 @@
-@media (min-width: 320px) and (max-width:768px) {}
+.FirstLoad {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 1em;
+
+    background: linear-gradient(50deg, rgb(8, 8, 8), rgb(11, 19, 59));
+}
+
+.FirstLoad__loadingText {
+    color: rgb(255, 255, 255);
+    font-style: italic;
+    font-size: 1em;
+
+    background: linear-gradient(120deg,
+            transparent 0%,
+            white 30%,
+            white 70%,
+            transparent 100%);
+    background-size: 200% 100%;
+    background-position: -100% 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@media (min-width: 320px) and (max-width:768px) {
+
+    .FirstLoad__loadingIcon {
+        width: clamp(2em, 10vw, 4em);
+    }
+
+}
+
+@media (min-width: 768px) and (max-width:1024px) {
+
+    .FirstLoad__loadingIcon {
+        width: 64px;
+    }
+}
+
+@media (min-width:1024px) {
+
+    .FirstLoad__loadingIcon {
+        width: 64px;
+    }
+}
