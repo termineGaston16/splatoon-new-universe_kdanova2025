@@ -3,6 +3,7 @@ import FirstLoad from "./UI/Presentation/Components/Suspense/FirstLoad";
 import AlertInOnline from "./UI/Presentation/Elements/AlertInOnline";
 import { Suspense } from "react";
 import Offline from "./UI/Presentation/Components/Offline";
+import MainNavbar from "./UI/Presentation/Components/MainNavbar";
 
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
 
             <AlertInOnline />
             <Offline />
+            <MainNavbar />
 
             <Suspense
                 fallback={

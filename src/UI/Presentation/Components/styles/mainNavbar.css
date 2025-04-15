@@ -1,0 +1,88 @@
+.mainNavbar {
+    width: 100%;
+
+    background-image: url('public/pictures/backgrounds/main-header_background.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainNavbar__listOfNavigations {
+    width: 100%;
+    max-width: 1024px;
+    height: 100%;
+
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    list-style: none;
+}
+
+.mainNavbar__listOfNavigations__navigation--link__picture--sp1,
+.mainNavbar__listOfNavigations__navigation--link__picture {
+    transition: all .3s ease-in;
+}
+
+.mainNavbar__listOfNavigations__navigation--link__picture--sp1:hover {
+    filter: drop-shadow(2px 2px 2px rgb(var(--hoverColor)))
+}
+
+.mainNavbar__listOfNavigations__navigation--link__picture:hover {
+    filter: drop-shadow(2px 2px 2px rgb(var(--hoverColor)))
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .mainNavbar__listOfNavigations {
+        gap: 20%;
+    }
+
+    .mainNavbar__listOfNavigations__navigation--link__picture--sp1 {
+        margin: 1em 0px;
+        width: clamp(1em, 11vw, 45px);
+    }
+
+    .mainNavbar__listOfNavigations__navigation--link__picture {
+        margin: 1em 0px;
+        width: clamp(1em, 20vw, 5em);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mainNavbar__listOfNavigations {
+        gap: 10%;
+    }
+
+
+    .mainNavbar__listOfNavigations__navigation--link__picture--sp1 {
+        margin: 1em 0px;
+        width: 10em
+    }
+
+    .mainNavbar__listOfNavigations__navigation--link__picture {
+        margin: 1em 0px;
+        width: 11em
+    }
+}
+
+@media (min-width: 1025px) {
+    .mainNavbar__listOfNavigations {
+        gap: 20%;
+    }
+
+    .mainNavbar__listOfNavigations__navigation--link__picture--sp1 {
+        margin: 1em 0px;
+        width: 11em
+    }
+
+    .mainNavbar__listOfNavigations__navigation--link__picture {
+        margin: 1em 0px;
+        width: 12em
+    }
+}
