@@ -73,7 +73,7 @@
 
 @media (min-width: 1025px) {
     .mainNavbar__listOfNavigations {
-        gap: 20%;
+        gap: 15%;
     }
 
     .mainNavbar__listOfNavigations__navigation--link__picture--sp1 {

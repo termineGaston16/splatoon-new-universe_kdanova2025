@@ -1,25 +1,25 @@
 import { BrowserRouter, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import FirstLoad from "./UI/Presentation/Components/Suspense/FirstLoad";
-import AlertInOnline from "./UI/Presentation/Elements/AlertInOnline";
-import { Suspense } from "react";
-import Offline from "./UI/Presentation/Components/Offline";
 import MainNavbar from "./UI/Presentation/Components/MainNavbar";
 
+const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
+const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
 
 export default function App() {
 
     return (
         <BrowserRouter>
-
-            <AlertInOnline />
-            <Offline />
-            <MainNavbar />
-
             <Suspense
                 fallback={
                     <FirstLoad />
                 }
             >
+                <AlertInOnline />
+                <Offline />
+                <MainNavbar />
+
+
                 <main>
                     <Routes>
                     </Routes>
