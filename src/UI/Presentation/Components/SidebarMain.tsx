@@ -9,7 +9,7 @@ export default function SidebarMain() {
                 to="/">
                 <img
                     loading="lazy"
-                    src="public/pictures/logos/splatoon-new-universe_logo-principal.png"
+                    src="/pictures/logos/splatoon-new-universe_logo-principal.png"
                     alt="Logo principal de Splatoon New Universe"
                 />
             </Link>
@@ -36,7 +36,7 @@ export default function SidebarMain() {
                             <img
                                 loading="lazy"
                                 alt="Acceder al perfil Splatoon desde el menú desplegable"
-                                src="public/pictures/logos/splatoon_main-header_mobile.png"
+                                src="/pictures/logos/splatoon_main-header_mobile.png"
                             />
                             <span>SPLATOON</span>
                         </Link>
@@ -48,7 +48,7 @@ export default function SidebarMain() {
                             <img
                                 loading="lazy"
                                 alt="Acceder al perfil Splatoon 2 desde el menú desplegable"
-                                src="public/pictures/logos/splatoon2_main-header_mobile.png"
+                                src="/pictures/logos/splatoon2_main-header_mobile.png"
                             />
                             <span>SPLATOON 2</span>
                         </Link>
@@ -60,7 +60,7 @@ export default function SidebarMain() {
                             <img
                                 loading="lazy"
                                 alt="Acceder al perfil Splatoon 3 desde el menú desplegable"
-                                src="public/pictures/logos/splatoon3_main-header_mobile.png"
+                                src="/pictures/logos/splatoon3_main-header_mobile.png"
                             />
                             <span>SPLATOON 3</span>
                         </Link>
@@ -72,7 +72,7 @@ export default function SidebarMain() {
                             <img
                                 loading="lazy"
                                 alt="Acceder al perfil de las Squid Sisters"
-                                src="public/pictures/icons/squidSisters.png"
+                                src="/pictures/icons/squidSisters.png"
                             />
                             <span>SQUID SISTERS</span>
                         </Link>
@@ -84,7 +84,7 @@ export default function SidebarMain() {
                             <img
                                 loading="lazy"
                                 alt="Acceder al perfil de Off The Hook"
-                                src="public/pictures/icons/offTheHook.png"
+                                src="/pictures/icons/offTheHook.png"
                             />
                             <span>OFF THE HOOK</span>
                         </Link>
@@ -96,7 +96,7 @@ export default function SidebarMain() {
                             <img
                                 loading="lazy"
                                 alt="Acceder al perfil de Deep Cut"
-                                src="public/pictures/icons/deepCut.png"
+                                src="/pictures/icons/deepCut.png"
                             />
                             <span>DEEP CUT</span>
                         </Link>

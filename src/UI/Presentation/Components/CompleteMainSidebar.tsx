@@ -11,8 +11,8 @@ export default function CompleteMainSidebar() {
             <DefaultActionableButton
                 urlDefaultActionableButton={
                     showSidebarMain
-                        ? "public/pictures/icons/close.png"
-                        : "public/pictures/icons/side-menu.png"
+                        ? "/pictures/icons/close.png"
+                        : "/pictures/icons/side-menu.png"
                 }
                 textDefaultActionableButton={
                     showSidebarMain ? 'CERRAR' : 'MENÚ'

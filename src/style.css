@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "ChakraPetch-Bold";
-    src: url("public/font-style/Chakra_Petch/ChakraPetch-Bold.ttf") format("truetype")
+    src: url("/font-style/Chakra_Petch/ChakraPetch-Bold.ttf") format("truetype")
 }
 
 * {
@@ -10,4 +10,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "ChakraPetch-Bold", 'Times New Roman', Times, serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }

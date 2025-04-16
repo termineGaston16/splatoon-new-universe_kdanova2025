@@ -17,11 +17,11 @@ export default function MainNavbar() {
                         <picture>
                             <source
                                 media="(min-width: 320px) and (max-width: 768px)"
-                                srcSet="public/pictures/logos/splatoon_main-header_mobile.png" />
+                                srcSet="/pictures/logos/splatoon_main-header_mobile.png" />
                             <img
                                 style={{ '--hoverColor': '78, 174, 78' } as React.CSSProperties}
                                 className="mainNavbar__listOfNavigations__navigation--link__picture--sp1"
-                                src="public/pictures/logos/splatoon_main-header.png"
+                                src="/pictures/logos/splatoon_main-header.png"
                                 loading="lazy"
                                 alt="Acceder al perfil Splatoon desde la navegación principal"
                             />
@@ -35,12 +35,12 @@ export default function MainNavbar() {
                         <picture>
                             <source
                                 media="(min-width: 320px) and (max-width: 768px)"
-                                srcSet="public/pictures/logos/splatoon2_main-header_mobile.png" />
+                                srcSet="/pictures/logos/splatoon2_main-header_mobile.png" />
 
                             <img
                                 style={{ '--hoverColor': '89, 248, 179' } as React.CSSProperties}
                                 className="mainNavbar__listOfNavigations__navigation--link__picture"
-                                src="public/pictures/logos/splatoon2_main-header.png"
+                                src="/pictures/logos/splatoon2_main-header.png"
                                 loading="lazy"
                                 alt="Acceder al perfil Splatoon 2 desde la navegación principal"
                             />
@@ -54,11 +54,11 @@ export default function MainNavbar() {
                         <picture>
                             <source
                                 media="(min-width: 320px) and (max-width: 768px)"
-                                srcSet="public/pictures/logos/splatoon3_main-header_mobile.png" />
+                                srcSet="/pictures/logos/splatoon3_main-header_mobile.png" />
                             <img
                                 style={{ '--hoverColor': '111, 0, 255' } as React.CSSProperties}
                                 className="mainNavbar__listOfNavigations__navigation--link__picture"
-                                src="public/pictures/logos/splatoon3_main-header.png"
+                                src="/pictures/logos/splatoon3_main-header.png"
                                 loading="lazy"
                                 alt="Acceder al perfil Splatoon 3 desde la navegación principal"
                             />

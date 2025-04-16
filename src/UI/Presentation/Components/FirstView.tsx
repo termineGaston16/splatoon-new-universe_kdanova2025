@@ -4,7 +4,7 @@ export default function FirstView() {
             <img
                 loading="lazy"
                 alt="Logo Principal de Splatoon New Universe"
-                src="public/pictures/logos/splatoon-new-universe_logo-principal.png"
+                src="/pictures/logos/splatoon-new-universe_logo-principal.png"
             />
 
             <iframe

@@ -10,111 +10,111 @@ export default function Gallery() {
     }[] = [
             {
                 alt: `Letra S de color blanco, con borde negro y una sombra de color verde lima y por encima la palabra new sobre una mancha de pintura color limón`,
-                url: 'public/pictures/logos/splatoon-new-universe_favicon.webp',
+                url: '/pictures/logos/splatoon-new-universe_favicon.webp',
                 text: 'Favicon'
             },
             {
                 alt: `Letra S de color blanco, con borde negro y una sombra de color verde lima`,
-                url: 'public/pictures/logos/loading-component.png',
+                url: '/pictures/logos/loading-component.png',
                 text: 'Logo de Cargando'
             },
             {
                 alt: `Palabra Splatoon de color blanco, con bordes negros y una sombra de color verde lima, por encima la palabra está escrito new sobre una mancha de pintura color limón y por debajo de la palabra está el subtitulo universe de color azulado y morado `,
-                url: 'public/pictures/logos/splatoon-new-universe_logo-principal.png',
+                url: '/pictures/logos/splatoon-new-universe_logo-principal.png',
                 text: 'Logo Principal'
             },
             {
                 alt: `Letra S color transparente, con borde violeta pastel y una sombra de verde pastel`,
-                url: 'public/pictures/logos/splatoon_main-header_mobile.png',
+                url: '/pictures/logos/splatoon_main-header_mobile.png',
                 text: 'Logo de Navegación en vista Mobile'
             },
             {
                 alt: `Letra S color transparente, con borde rosa pastel y una sombra de verde agua, acompañada de un numero dos en color rojo pastel`,
-                url: 'public/pictures/logos/splatoon2_main-header_mobile.png',
+                url: '/pictures/logos/splatoon2_main-header_mobile.png',
                 text: 'Logo 2 de Navegación en vista Mobile'
             }
             ,
             {
                 alt: `Letra S color transparente, con borde amarillo pastel y una sombra de violeta pastel, acompañada de un numero tres en color amarillo fuerte`,
-                url: 'public/pictures/logos/splatoon3_main-header_mobile.png',
+                url: '/pictures/logos/splatoon3_main-header_mobile.png',
                 text: 'Logo 3 de Navegación en vista Mobile'
             }
             ,
             {
                 alt: `Palabra Splatoon de color transparente, con borde violeta pastel y una sombra de verde pastel`,
-                url: 'public\pictures\logos\splatoon_main-header.png',
+                url: '/pictures/logos/splatoon_main-header.png',
                 text: 'Logo 1 de Navegación en vista Escritorio'
             }
             ,
             {
                 alt: `Palabra Splatoon de color transparente, con borde rosa pastel y una sombra de verde agua, acompañada de un numero dos en color rojo pastel`,
-                url: 'public/pictures/logos/splatoon2_main-header.png',
+                url: '/pictures/logos/splatoon2_main-header.png',
                 text: 'Logo 2 de Navegación en vista Escritorio'
             }
             ,
             {
                 alt: `Palabra Splatoon de color transparente, con borde amarillo pastel y una sombra de violeta pastel, acompañada de un numero tres en color amarillo fuerte`,
-                url: 'public/pictures/logos/splatoon3_main-header.png',
+                url: '/pictures/logos/splatoon3_main-header.png',
                 text: 'Logo 3 de Navegación en vista Escritorio'
             }
             ,
             {
                 alt: `Dibujo de calamar violeta`,
-                url: 'public/pictures/logos/callie_flowingBar.png',
+                url: '/pictures/logos/callie_flowingBar.png',
                 text: 'Callie Inkling'
             }
             ,
             {
                 alt: `Dibujo de calamar verde`,
-                url: 'public/pictures/logos/marie_flowingBar.png',
+                url: '/pictures/logos/marie_flowingBar.png',
                 text: 'Marie Inkling'
             }
             ,
             {
                 alt: `Dibujo de calamar beige`,
-                url: 'public/pictures/logos/pearl_flowingBar.png',
+                url: '/pictures/logos/pearl_flowingBar.png',
                 text: 'Perla Inkling'
             }
             ,
             {
                 alt: `Dibujo de pulpito grisaseo`,
-                url: 'public/pictures/logos/marina_flowingBar.png',
+                url: '/pictures/logos/marina_flowingBar.png',
                 text: 'Marina Octoling'
             }
             ,
             {
                 alt: `Dibujo de pulpito azulado`,
-                url: 'public/pictures/logos/shiver_flowingBar.png',
+                url: '/pictures/logos/shiver_flowingBar.png',
                 text: 'Shiver Octoling'
             }
             ,
             {
                 alt: `Dibujo de calamar anaranjado`,
-                url: 'public\pictures\logos\fyre_flowingBar.png',
+                url: '\pictures\logos\fyre_flowingBar.png',
                 text: 'Angie Inkling'
             }
             ,
             {
                 alt: `Palabra Splatoon de color blanco, con borde negro y sombra verde fuerte, rodeado de la pregunta: ¿Quiénes son?`,
-                url: 'public/pictures/logos/splatoon1-mainCovers.png',
+                url: '/pictures/logos/splatoon1-mainCovers.png',
                 text: 'Splatoon 1 Portada Individual'
             }
             ,
             {
                 alt: `Palabra Splatoon dos de color blanco, con borde negro y sombra verde fuerte, rodeado de la pregunta: ¿Quiénes son?`,
-                url: 'public/pictures/logos/splatoon2-mainCovers.png',
+                url: '/pictures/logos/splatoon2-mainCovers.png',
                 text: 'Splatoon 2 Portada Individual'
             }
             ,
             {
                 alt: `Palabra Splatoon tres de color blanco, con borde negro y sombra amarillo fuerte, rodeado de la pregunta: ¿Quiénes son?`,
-                url: 'public/pictures/logos/splatoon3-mainCovers.png',
+                url: '/pictures/logos/splatoon3-mainCovers.png',
                 text: 'Splatoon 3 Portada Individual'
             }
             ,
             {
                 alt: `Un Icóno de dos guantes blancos entre sí junto a una flecha en el medio, rodeado de la pregunta: ¿Quiénes son?`,
-                url: 'public\pictures\logos\squidSisters-mainCovers.png',
+                url: '/pictures/logos/squidSisters-mainCovers.png',
                 text: 'Squid Sisters Portada Individual'
             }
             ,
@@ -125,13 +125,13 @@ export default function Gallery() {
                 un logotipo distorsionado con la palabra "Temis" estilizada, acompañada 
                 de un símbolo de la letra "E" en un recuadro. El diseño tiene un efecto 
                 tridimensional con sombras duplicadas y líneas dinámicas.`,
-                url: 'public/pictures/logos/offTheHook-mainCovers.png',
+                url: '/pictures/logos/offTheHook-mainCovers.png',
                 text: 'Off The Hook Portada Individual'
             }
             ,
             {
                 alt: `Logotipo circular en color blanco, con un bordeado de color azul, rojo y amarillo y rodeado de la pregunta: ¿Quiénes son?`,
-                url: 'public/pictures/logos/deepCut-mainCovers.png',
+                url: '/pictures/logos/deepCut-mainCovers.png',
                 text: 'Deep Cut Portada Individual'
             }
         ]

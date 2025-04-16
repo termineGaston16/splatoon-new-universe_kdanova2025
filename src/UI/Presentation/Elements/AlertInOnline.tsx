@@ -40,7 +40,7 @@ export default function AlertInOnline() {
         >
             <img
                 loading="lazy"
-                src="public/pictures/icons/about.png"
+                src="/pictures/icons/about.png"
                 alt=""
                 aria-hidden="true"
                 className="AlertInOnline__icon"

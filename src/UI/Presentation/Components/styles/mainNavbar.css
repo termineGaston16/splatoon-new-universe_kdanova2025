@@ -1,7 +1,7 @@
 .mainNavbar {
     width: 100%;
 
-    background-image: url('public/pictures/backgrounds/main-header_background.png');
+    background-image: url('/pictures/backgrounds/main-header_background.png');
     background-size: contain;
     background-repeat: repeat-x;
 

@@ -9,7 +9,7 @@ export default function () {
             <img
                 className='FirstLoad__loadingIcon'
                 loading="lazy"
-                src="./public/pictures/logos/loading-component.png"
+                src="./pictures/logos/loading-component.png"
                 alt="Logotipo de carga del componente" />
             <span
                 className='FirstLoad__loadingText'

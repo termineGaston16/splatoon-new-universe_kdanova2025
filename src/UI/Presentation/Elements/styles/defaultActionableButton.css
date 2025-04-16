@@ -1,0 +1,29 @@
+.DefaultActionableButton {
+    font-style: 16px;
+
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+
+    position: fixed;
+    top: var(--top);
+    left: var(--left);
+    right: var(--right);
+    bottom: var(--bottom);
+
+    background-color: rgb(7, 7, 7);
+    border: 0px;
+
+    cursor: pointer;
+}
+
+.DefaultActionableButton img {
+    width: 2em;
+    height: 2em;
+}
+
+.DefaultActionableButton__text {
+    color: white;
+    text-shadow: 2px 2px 0px black;
+    font-size: 14px;
+}

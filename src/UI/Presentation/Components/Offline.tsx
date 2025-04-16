@@ -32,7 +32,7 @@ export default function Offline() {
         <section className="Offline">
             <img
                 loading="lazy"
-                src="public/pictures/details/alert-message.png"
+                src="/pictures/details/alert-message.png"
                 alt="Alerta del estado Offline"
                 className="Offline__sign"
             />
