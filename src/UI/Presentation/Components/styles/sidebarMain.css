@@ -79,14 +79,22 @@
 
     gap: 1em;
 
-    color: white;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.836);
+
+    transition: all .1s linear;
+}
+
+.SidebarMain__navigation__list__item:hover>.SidebarMain__navigation__list__item--link {
+    color: rgb(49, 255, 245);
+    transform: scale(1.1);
 }
 
 .SidebarMain__navigation__list__item__ReactICON,
 .SidebarMain__navigation__list__item__imgICON {
-    width: 1em;
-    aspect-ratio: 1/1;
+    width: 1.2em;
 }
+
 
 
 @media (min-width: 320px) and (max-width: 768px) {

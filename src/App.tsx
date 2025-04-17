@@ -5,6 +5,7 @@ import MainNavbar from "./UI/Presentation/Components/MainNavbar";
 import DefaultActionableButton from "./UI/Presentation/Elements/DefaultActionableButton";
 import { AnimatePresence } from "framer-motion";
 import SidebarMain from "./UI/Presentation/Components/SidebarMain";
+import BlackBackground from "./UI/Presentation/Elements/BlackBackground";
 
 const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
 const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
@@ -80,12 +81,20 @@ export default function App() {
                     classCss="btnSidebarMain"
                 />
 
-                {
-                    openSidebarMain &&
-                    <>
-                        <SidebarMain />
-                    </>
-                }
+                <AnimatePresence>
+                    {
+                        openSidebarMain &&
+                        <>
+                            <SidebarMain
+                                callback={() => setOpenSidebarMain(false)}
+                            />
+                            <BlackBackground
+                                zIndex={970}
+                                animation={true}
+                            />
+                        </>
+                    }
+                </AnimatePresence>
 
                 <main>
                     <Routes>

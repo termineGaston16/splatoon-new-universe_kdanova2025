@@ -1,10 +1,31 @@
 import { MdHomeFilled } from "react-icons/md";
 import { Link } from "react-router-dom";
 import './styles/sidebarMain.css'
+import { motion } from "framer-motion";
 
-export default function SidebarMain() {
+interface SidebarMainProps {
+    callback: () => void
+}
+
+const SidebarMain = ({
+    callback
+}: SidebarMainProps) => {
     return (
-        <aside className="SidebarMain">
+        <motion.aside
+            className="SidebarMain"
+            initial={{
+                translateX: -300
+            }}
+            animate={{
+                translateX: 0
+            }}
+            exit={{
+                translateX: -300
+            }}
+            transition={{
+                duration: .2
+            }}
+        >
             <Link
                 aria-label="Acceder al perfil Splatoon desde el menú desplegable"
                 to="/"
@@ -25,7 +46,9 @@ export default function SidebarMain() {
 
             <nav className="SidebarMain__navigation">
                 <ul className="SidebarMain__navigation__list">
-                    <li className="SidebarMain__navigation__list__item">
+                    <li
+                        onClick={() => callback()}
+                        className="SidebarMain__navigation__list__item">
                         <Link
                             className="SidebarMain__navigation__list__item--link"
                             aria-label="Acceder a la página principal"
@@ -37,12 +60,17 @@ export default function SidebarMain() {
                             <span className="SidebarMain__navigation__list__item__text">HOME</span>
                         </Link>
                     </li>
-                    <li className="SidebarMain__navigation__list__item">
+                    <li
+                        onClick={() => callback()}
+                        className="SidebarMain__navigation__list__item">
                         <Link
                             className="SidebarMain__navigation__list__item--link"
                             aria-label="Acceder al perfil Splatoon desde la nevegacion desplegable"
                             to={"/perfil-general=splatoon"}>
                             <img
+                                style={{
+                                    width: '1em'
+                                }}
                                 className="SidebarMain__navigation__list__item__imgICON"
                                 loading="lazy"
                                 alt="Acceder al perfil Splatoon desde el menú desplegable"
@@ -51,7 +79,9 @@ export default function SidebarMain() {
                             <span className="SidebarMain__navigation__list__item__text">SPLATOON</span>
                         </Link>
                     </li>
-                    <li className="SidebarMain__navigation__list__item">
+                    <li
+                        onClick={() => callback()}
+                        className="SidebarMain__navigation__list__item">
                         <Link
                             className="SidebarMain__navigation__list__item--link"
                             aria-label="Acceder al perfil Splatoon 2 desde el menú desplegable"
@@ -65,7 +95,9 @@ export default function SidebarMain() {
                             <span className="SidebarMain__navigation__list__item__text">SPLATOON 2</span>
                         </Link>
                     </li>
-                    <li className="SidebarMain__navigation__list__item">
+                    <li
+                        onClick={() => callback()}
+                        className="SidebarMain__navigation__list__item">
                         <Link
                             className="SidebarMain__navigation__list__item--link"
                             aria-label="Acceder al perfil Splatoon 3 desde el menú desplegable"
@@ -79,7 +111,9 @@ export default function SidebarMain() {
                             <span className="SidebarMain__navigation__list__item__text">SPLATOON 3</span>
                         </Link>
                     </li>
-                    <li className="SidebarMain__navigation__list__item">
+                    <li
+                        onClick={() => callback()}
+                        className="SidebarMain__navigation__list__item">
                         <Link
                             className="SidebarMain__navigation__list__item--link"
                             aria-label="Acceder al perfil de las Squid Sisters"
@@ -93,7 +127,9 @@ export default function SidebarMain() {
                             <span className="SidebarMain__navigation__list__item__text">SQUID SISTERS</span>
                         </Link>
                     </li>
-                    <li className="SidebarMain__navigation__list__item">
+                    <li
+                        onClick={() => callback()}
+                        className="SidebarMain__navigation__list__item">
                         <Link
                             className="SidebarMain__navigation__list__item--link"
                             aria-label="Acceder al perfil de Off The Hook"
@@ -107,7 +143,9 @@ export default function SidebarMain() {
                             <span className="SidebarMain__navigation__list__item__text">OFF THE HOOK</span>
                         </Link>
                     </li>
-                    <li className="SidebarMain__navigation__list__item">
+                    <li
+                        onClick={() => callback()}
+                        className="SidebarMain__navigation__list__item">
                         <Link
                             className="SidebarMain__navigation__list__item--link"
                             aria-label="Acceder al perfil de Deep Cut"
@@ -123,6 +161,8 @@ export default function SidebarMain() {
                     </li>
                 </ul>
             </nav>
-        </aside >
+        </motion.aside >
     )
 }
+
+export default SidebarMain;
