@@ -27,8 +27,6 @@ export default function App() {
         }
     }, [])
 
-
-
     const [openSidebarMain, setOpenSidebarMain] = useState<boolean>(false);
 
     return (
@@ -58,18 +56,7 @@ export default function App() {
                     }
                 </AnimatePresence>
 
-                <main>
-                    <Routes>
-                    </Routes>
-                </main>
-            </Suspense>
-        </BrowserRouter>
-    )
-}
-
-
-
-{/* <DefaultActionableButton
+                <DefaultActionableButton
                     onClickDefaultActionableButton={
                         () => setOpenSidebarMain(prevState => !prevState)
                     }
@@ -89,5 +76,17 @@ export default function App() {
                             ? '/pictures/icons/close.png'
                             : '/pictures/icons/side-menu.png'
                     }
+                    classCss="btnSidebarMain"
+                />
 
-                /> */}
+                <main>
+                    <Routes>
+                    </Routes>
+                </main>
+            </Suspense>
+        </BrowserRouter>
+    )
+}
+
+
+

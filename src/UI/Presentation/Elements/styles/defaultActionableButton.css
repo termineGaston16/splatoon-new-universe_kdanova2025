@@ -17,17 +17,31 @@
     cursor: pointer;
 
     will-change: transform;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .DefaultActionableButton__icon {
     width: 2em;
     height: 2em;
+
+    transition: all .3s;
 }
 
 .DefaultActionableButton__text {
     color: white;
     text-shadow: 2px 2px 0px black;
     font-size: 14px;
+
+    transition: all .3s;
+}
+
+.btnSidebarMain:active .DefaultActionableButton__icon,
+.DefaultActionableButton__text {
+    font-size: 10px;
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
@@ -48,5 +62,22 @@
     .GoUpButton {
         top: 70%;
         right: 0%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .btnSidebarMain {
+        border-radius: 0%;
+
+        width: 100%;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 769px) {
+
+    .btnSidebarMain {
+        top: 15%;
+        left: 1em;
     }
 }
