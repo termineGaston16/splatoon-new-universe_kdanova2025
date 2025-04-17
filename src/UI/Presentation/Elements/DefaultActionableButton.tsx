@@ -1,4 +1,4 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import './styles/defaultActionableButton.css'
 
 interface Props {
@@ -6,10 +6,7 @@ interface Props {
     urlDefaultActionableButton?: string,
     altDefaultActionableButton?: string,
     arialLabel?: string,
-    top?: string,
-    left?: string,
-    right?: string,
-    bottom?: string,
+    classCss?: string
     onClickDefaultActionableButton: () => void
 }
 
@@ -19,24 +16,31 @@ const DefaultActionableButton = (
         textDefaultActionableButton,
         urlDefaultActionableButton = "",
         altDefaultActionableButton = "",
-        top = '',
-        left = '',
-        right = '',
-        bottom = '',
+        classCss = '',
         onClickDefaultActionableButton
     }: Props
 ) => {
     return (
-        <button
-            className="DefaultActionableButton"
+        <motion.button
+            className={`DefaultActionableButton ${classCss}`}
             aria-label={arialLabel}
             onClick={() => onClickDefaultActionableButton()}
-            style={{
-                '--top': `${top}`,
-                '--left': `${left}`,
-                '--right': `${right}`,
-                '--bottom': `${bottom}`,
-            } as React.CSSProperties}
+
+            initial={
+                classCss === 'GoUpButton' && {
+                    translateX: 100
+                }
+            }
+            animate={
+                classCss === 'GoUpButton' && {
+                    translateX: 0
+                }
+            }
+            exit={
+                classCss === 'GoUpButton'
+                    ? { translateX: 100 }
+                    : undefined
+            }
         >
             <img
                 className="DefaultActionableButton__icon"
@@ -47,7 +51,7 @@ const DefaultActionableButton = (
             <span className="DefaultActionableButton__text">
                 {textDefaultActionableButton}
             </span>
-        </button>
+        </motion.button>
     )
 };
 

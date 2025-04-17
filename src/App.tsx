@@ -1,13 +1,35 @@
 import { BrowserRouter, Routes } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import FirstLoad from "./UI/Presentation/Components/Suspense/FirstLoad";
 import MainNavbar from "./UI/Presentation/Components/MainNavbar";
 import DefaultActionableButton from "./UI/Presentation/Elements/DefaultActionableButton";
+import { AnimatePresence } from "framer-motion";
 
 const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
 const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
 
 export default function App() {
+
+    const [showBtnGoUp, setShowBtnGoUp] = useState<boolean>(false);
+    useEffect(() => {
+        const showGoUp = () => {
+            if (scrollY > 200) {
+                setShowBtnGoUp(true)
+            } else {
+                setShowBtnGoUp(false)
+            }
+        }
+
+        addEventListener('scroll', showGoUp)
+
+        return () => {
+            removeEventListener('scroll', showGoUp)
+        }
+    }, [])
+
+
+
+    const [openSidebarMain, setOpenSidebarMain] = useState<boolean>(false);
 
     return (
         <BrowserRouter>
@@ -20,19 +42,21 @@ export default function App() {
                 <Offline />
                 <MainNavbar />
 
-                <DefaultActionableButton
-                    onClickDefaultActionableButton={
-                        () => document.querySelector('#main-navbar')?.scrollIntoView({ behavior: 'smooth' })
+                <AnimatePresence>
+                    {
+                        showBtnGoUp &&
+                        <DefaultActionableButton
+                            onClickDefaultActionableButton={
+                                () => document.querySelector('#main-navbar')?.scrollIntoView({ behavior: 'smooth' })
+                            }
+                            textDefaultActionableButton="VOLVER"
+                            altDefaultActionableButton="Flecha hacia arriba, color blanca y con forma de calamar"
+                            arialLabel="Ir arriba de la página"
+                            urlDefaultActionableButton="/pictures/icons/squid-icon.png"
+                            classCss="GoUpButton"
+                        />
                     }
-                    textDefaultActionableButton="VOLVER"
-                    altDefaultActionableButton="Flecha hacia arriba, color blanca y con forma de calamar"
-                    arialLabel="Ir arriba de la página"
-                    urlDefaultActionableButton="/pictures/icons/squid-icon.png"
-                    top="70%"
-                    right="2%"
-                />
-
-
+                </AnimatePresence>
 
                 <main>
                     <Routes>
@@ -42,3 +66,28 @@ export default function App() {
         </BrowserRouter>
     )
 }
+
+
+
+{/* <DefaultActionableButton
+                    onClickDefaultActionableButton={
+                        () => setOpenSidebarMain(prevState => !prevState)
+                    }
+                    textDefaultActionableButton={
+                        openSidebarMain ? 'CERRAR' : 'MENÚ'
+                    }
+                    altDefaultActionableButton={
+                        openSidebarMain
+                            ? '' : ''
+                    }
+                    arialLabel={
+                        openSidebarMain
+                            ? 'Cerrar Menú Lateral' : 'Abrir Menú Lateral'
+                    }
+                    urlDefaultActionableButton={
+                        openSidebarMain
+                            ? '/pictures/icons/close.png'
+                            : '/pictures/icons/side-menu.png'
+                    }
+
+                /> */}

@@ -1,5 +1,6 @@
 .mainNavbar {
     width: 100%;
+    height: 200vh;
 
     background-image: url('/pictures/backgrounds/main-header_background.png');
     background-size: contain;
