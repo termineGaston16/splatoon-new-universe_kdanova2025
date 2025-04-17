@@ -3,7 +3,7 @@ import './styles/offline.css'
 
 export default function Offline() {
 
-    const [showOffline, setShowOffline] = useState<boolean>(false);
+    const [showOffline, setShowOffline] = useState<boolean>(!navigator.onLine);
 
     useEffect(() => {
         const handleOnline = () => {
