@@ -10,6 +10,7 @@ import FirstView from "./UI/Presentation/Components/FirstView";
 import FlowingBar from "./UI/Presentation/Elements/FlowingBar";
 import MainCovers from "./GeneralProfile/Presentation/Components/MainCovers";
 import MainFooter from "./UI/Presentation/Components/MainFooter";
+import Gallery from "./Gallery/Gallery";
 
 const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
 const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
@@ -220,6 +221,9 @@ export default function App() {
                                 idNav="splatoon3-maincover"
                             />
                         </>} />
+                        <Route path="/galeria" element={
+                            <Gallery />
+                        } />
                     </Routes>
                 </main>
 

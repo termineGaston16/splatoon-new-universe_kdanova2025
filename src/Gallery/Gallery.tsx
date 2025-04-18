@@ -1,12 +1,13 @@
-import { useVirtualizer } from "@tanstack/react-virtual";
-import { useRef } from "react";
+import './style/gallery.css'
 
 export default function Gallery() {
 
+    const EXTRA_WIDTH = '6em';
     const galleryContent: {
         alt: string,
         url: string,
-        text: string
+        text: string,
+        pW?: string
     }[] = [
             {
                 alt: `Letra S de color blanco, con borde negro y una sombra de color verde lima y por encima la palabra new sobre una mancha de pintura color limón`,
@@ -21,7 +22,8 @@ export default function Gallery() {
             {
                 alt: `Palabra Splatoon de color blanco, con bordes negros y una sombra de color verde lima, por encima la palabra está escrito new sobre una mancha de pintura color limón y por debajo de la palabra está el subtitulo universe de color azulado y morado `,
                 url: '/pictures/logos/splatoon-new-universe_logo-principal.png',
-                text: 'Logo Principal'
+                text: 'Logo Principal',
+                pW: EXTRA_WIDTH
             },
             {
                 alt: `Letra S color transparente, con borde violeta pastel y una sombra de verde pastel`,
@@ -31,31 +33,36 @@ export default function Gallery() {
             {
                 alt: `Letra S color transparente, con borde rosa pastel y una sombra de verde agua, acompañada de un numero dos en color rojo pastel`,
                 url: '/pictures/logos/splatoon2_main-header_mobile.png',
-                text: 'Logo 2 de Navegación en vista Mobile'
+                text: 'Logo 2 de Navegación en vista Mobile',
+                pW: EXTRA_WIDTH
             }
             ,
             {
                 alt: `Letra S color transparente, con borde amarillo pastel y una sombra de violeta pastel, acompañada de un numero tres en color amarillo fuerte`,
                 url: '/pictures/logos/splatoon3_main-header_mobile.png',
-                text: 'Logo 3 de Navegación en vista Mobile'
+                text: 'Logo 3 de Navegación en vista Mobile',
+                pW: EXTRA_WIDTH
             }
             ,
             {
                 alt: `Palabra Splatoon de color transparente, con borde violeta pastel y una sombra de verde pastel`,
                 url: '/pictures/logos/splatoon_main-header.png',
-                text: 'Logo 1 de Navegación en vista Escritorio'
+                text: 'Logo 1 de Navegación en vista Escritorio',
+                pW: EXTRA_WIDTH
             }
             ,
             {
                 alt: `Palabra Splatoon de color transparente, con borde rosa pastel y una sombra de verde agua, acompañada de un numero dos en color rojo pastel`,
                 url: '/pictures/logos/splatoon2_main-header.png',
-                text: 'Logo 2 de Navegación en vista Escritorio'
+                text: 'Logo 2 de Navegación en vista Escritorio',
+                pW: EXTRA_WIDTH
             }
             ,
             {
                 alt: `Palabra Splatoon de color transparente, con borde amarillo pastel y una sombra de violeta pastel, acompañada de un numero tres en color amarillo fuerte`,
                 url: '/pictures/logos/splatoon3_main-header.png',
-                text: 'Logo 3 de Navegación en vista Escritorio'
+                text: 'Logo 3 de Navegación en vista Escritorio',
+                pW: EXTRA_WIDTH
             }
             ,
             {
@@ -90,32 +97,36 @@ export default function Gallery() {
             ,
             {
                 alt: `Dibujo de calamar anaranjado`,
-                url: '\pictures\logos\fyre_flowingBar.png',
+                url: '/pictures/logos/fyre_flowingBar.png',
                 text: 'Angie Inkling'
             }
             ,
             {
                 alt: `Palabra Splatoon de color blanco, con borde negro y sombra verde fuerte, rodeado de la pregunta: ¿Quiénes son?`,
                 url: '/pictures/logos/splatoon1-mainCovers.png',
-                text: 'Splatoon 1 Portada Individual'
+                text: 'Splatoon 1 Portada Individual',
+                pW: EXTRA_WIDTH
             }
             ,
             {
                 alt: `Palabra Splatoon dos de color blanco, con borde negro y sombra verde fuerte, rodeado de la pregunta: ¿Quiénes son?`,
                 url: '/pictures/logos/splatoon2-mainCovers.png',
-                text: 'Splatoon 2 Portada Individual'
+                text: 'Splatoon 2 Portada Individual',
+                pW: EXTRA_WIDTH
             }
             ,
             {
                 alt: `Palabra Splatoon tres de color blanco, con borde negro y sombra amarillo fuerte, rodeado de la pregunta: ¿Quiénes son?`,
                 url: '/pictures/logos/splatoon3-mainCovers.png',
-                text: 'Splatoon 3 Portada Individual'
+                text: 'Splatoon 3 Portada Individual',
+                pW: EXTRA_WIDTH
             }
             ,
             {
                 alt: `Un Icóno de dos guantes blancos entre sí junto a una flecha en el medio, rodeado de la pregunta: ¿Quiénes son?`,
                 url: '/pictures/logos/squidSisters-mainCovers.png',
-                text: 'Squid Sisters Portada Individual'
+                text: 'Squid Sisters Portada Individual',
+                pW: EXTRA_WIDTH
             }
             ,
             {
@@ -126,77 +137,47 @@ export default function Gallery() {
                 de un símbolo de la letra "E" en un recuadro. El diseño tiene un efecto 
                 tridimensional con sombras duplicadas y líneas dinámicas.`,
                 url: '/pictures/logos/offTheHook-mainCovers.png',
-                text: 'Off The Hook Portada Individual'
+                text: 'Off The Hook Portada Individual',
+                pW: EXTRA_WIDTH
             }
             ,
             {
                 alt: `Logotipo circular en color blanco, con un bordeado de color azul, rojo y amarillo y rodeado de la pregunta: ¿Quiénes son?`,
                 url: '/pictures/logos/deepCut-mainCovers.png',
-                text: 'Deep Cut Portada Individual'
+                text: 'Deep Cut Portada Individual',
+                pW: EXTRA_WIDTH
             }
         ]
 
-    const galleryRef = useRef(null);
-    const rowVirtualizer = useVirtualizer({
-        count: galleryContent.length,
-        estimateSize: () => 120,
-        getScrollElement: () => galleryRef.current
-    })
-
     return (
-        <section>
-            <h2>Galería de Imágenes</h2>
-            <p>
+        <section className="Gallery">
+            <h2 className="Gallery__title">Galería de Imágenes</h2>
+            <p className="Gallery__description">
                 Ilustraciones realizadas por KDA/NOVA para esta página. Son libre de uso (No Copyright)
             </p>
 
-            <ul
-                aria-label="Galería de Ilustraciones"
-                ref={galleryRef}
-                style={{
-                    height: '500px',
-                    overflowY: 'scroll'
-                }}
-            >
-                <div
-                    style={{
-                        width: '100%',
-                        height: rowVirtualizer.getTotalSize(),
-                        margin: '0',
-                        padding: '0',
-                        position: 'relative'
-                    }}
-                >
-                    {
-                        rowVirtualizer.getVirtualItems().map(rowVirtual => {
-                            const { key, index } = rowVirtual;
+            <ul className="Gallery__list">
+                {galleryContent.map((item, index) => (
+                    <li key={index} className="Gallery__list__ilust">
+                        <figure className="Gallery__list__ilust--figure">
+                            <img
+                                loading="lazy"
+                                src={item.url}
+                                alt={item.alt}
+                                className="Gallery__list__ilust__img"
+                                style={
+                                    item.pW
+                                        ? { "--pW": item.pW } as React.CSSProperties
+                                        : undefined
+                                }
 
-                            return (
-                                <li
-                                    key={key}
-                                    style={{
-                                        width: '100%',
-                                        top: '0',
-                                        left: '0',
-                                        position: 'absolute',
-                                        transform: `translateY(${rowVirtual.start}px)`
-                                    }}
-                                >
-                                    <figure>
-                                        <img
-                                            loading="lazy"
-                                            src={galleryContent[index].url}
-                                            alt={galleryContent[index].alt}
-                                        />
-                                        <figcaption>
-                                            {galleryContent[index].text}
-                                        </figcaption>
-                                    </figure>
-                                </li>
-                            )
-                        })
-                    }
-                </div>
+                            />
+                            <figcaption className="Gallery__list__ilust__des">
+                                {item.text}
+                            </figcaption>
+                        </figure>
+                    </li>
+                ))}
             </ul>
         </section>
     );
