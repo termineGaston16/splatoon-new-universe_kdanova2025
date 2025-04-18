@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 import SidebarMain from "./UI/Presentation/Components/SidebarMain";
 import BlackBackground from "./UI/Presentation/Elements/BlackBackground";
 import FirstView from "./UI/Presentation/Components/FirstView";
+import FlowingBar from "./UI/Presentation/Elements/FlowingBar";
 
 const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
 const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
@@ -99,9 +100,31 @@ export default function App() {
 
                 <main>
                     <Routes>
-                        <Route path="/" element={
+                        <Route path="/" element={<>
                             <FirstView />
-                        } />
+
+                            <FlowingBar
+                                title={"VISITA CRÓMOPOLIS"}
+                                subT={"y sé un héroe"}
+                                ariaLabelBar={'Lista de redirecciones hacia las portadas principales'}
+                                links={[
+                                    {
+                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 1',
+                                        alt: 'Flecha con forma de calamar apuntando hacia abajo de color morado.',
+                                        cssLink: '180deg',
+                                        src: '/pictures/logos/callie_flowingBar.png',
+                                        to: '#splatoon1-maincover'
+                                    },
+                                    {
+                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 1',
+                                        alt: 'Flecha con forma de calamar apuntando hacia abajo de color verde.',
+                                        cssLink: '180deg',
+                                        src: '/pictures/logos/marie_flowingBar.png',
+                                        to: '#splatoon1-maincover'
+                                    }
+                                ]}
+                            />
+                        </>} />
                     </Routes>
                 </main>
             </Suspense>

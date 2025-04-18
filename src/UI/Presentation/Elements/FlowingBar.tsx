@@ -54,7 +54,9 @@ const FlowingBar = (
                                         <img
                                             alt={alt}
                                             src={src}
-                                            className={cssLink}
+                                            style={{
+                                                rotate: cssLink
+                                            }}
                                             loading="lazy"
                                         />
                                     </Link>
