@@ -1,0 +1,87 @@
+.MainCovers {
+    width: 100%;
+
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2em 1em;
+}
+
+.MainCovers--link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: relative;
+    transition: all .3s linear;
+}
+
+.MainCovers__cover--bg {
+    border: 5px outset rgb(255, 253, 134);
+    transition: all .3s linear;
+    object-fit: cover;
+}
+
+.MainCovers__cover--lg {
+    position: absolute;
+    width: 12em;
+
+    bottom: -2em;
+    left: 0;
+    transform: rotate(-5deg);
+    filter: drop-shadow(0px 0px 2px rgb(0, 0, 0));
+    transition: all .3s linear;
+    z-index: 10;
+}
+
+.MainCovers--link:hover {
+    box-shadow: 5px 5px 0px rgb(255, 255, 255);
+}
+
+.MainCovers--link:hover>.MainCovers__cover--lg {
+    filter: drop-shadow(0px 0px 2px rgb(255, 255, 255));
+}
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .MainCovers {
+        flex-direction: column;
+        gap: 5em;
+    }
+
+    .MainCovers__cover--bg {
+        width: 18em;
+        height: 20em;
+    }
+}
+
+@media (min-width: 769px) {
+    .MainCovers {
+        flex-direction: row;
+        gap: 1em;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .MainCovers__cover--bg {
+        border: 2px outset rgb(255, 253, 134);
+
+        width: 23em;
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (min-width: 1025px) {
+
+    .MainCovers__cover--bg {
+        border: 2px outset rgb(255, 253, 134);
+
+        width: 30em;
+        aspect-ratio: 16/9;
+    }
+}

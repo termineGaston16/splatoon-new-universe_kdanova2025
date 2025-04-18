@@ -21,13 +21,16 @@ const IndividualCover = (
 ) => {
     return (
         <Link
+            className="MainCovers--link"
             aria-label={ariaLabel}
             to={path}>
             <img
+                className="MainCovers__cover--bg"
                 loading="lazy"
                 src={url1}
                 alt={alt1} />
             <img
+                className="MainCovers__cover--lg"
                 loading="lazy"
                 src={url2}
                 alt={alt2} />

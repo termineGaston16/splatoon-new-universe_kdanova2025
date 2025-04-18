@@ -53,10 +53,11 @@ const FlowingBar = (
                                     className="FlowingBar__listRedirects__redirection"
                                     key={ariaLabelLink}
                                 >
-                                    <Link
+                                    <a
+
                                         className="FlowingBar__listRedirects__redirection--link"
                                         aria-label={ariaLabelLink}
-                                        to={to}>
+                                        href={to}>
                                         <img
                                             className="FlowingBar__listRedirects__redirection__icon"
                                             alt={alt}
@@ -66,7 +67,7 @@ const FlowingBar = (
                                             }}
                                             loading="lazy"
                                         />
-                                    </Link>
+                                    </a>
                                 </li>
                             )
                         })

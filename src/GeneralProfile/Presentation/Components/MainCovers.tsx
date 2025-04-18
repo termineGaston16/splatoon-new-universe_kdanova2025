@@ -1,4 +1,5 @@
 import IndividualCover from "./IndividualCover";
+import './style/mainCovers.css'
 
 interface Props {
     alt1: string,
@@ -12,7 +13,8 @@ interface Props {
     linkCoverOne: string,
     ariaLabelCoverOne: string,
     linkCoverTwo: string,
-    ariaLabelCoverTwo: string
+    ariaLabelCoverTwo: string,
+    idNav: string
 }
 
 const MainCovers = (
@@ -28,11 +30,15 @@ const MainCovers = (
         linkCoverOne,
         ariaLabelCoverOne,
         linkCoverTwo,
-        ariaLabelCoverTwo
+        ariaLabelCoverTwo,
+        idNav
     }: Props
 ) => {
     return (
-        <nav>
+        <nav
+            id={idNav}
+            className="MainCovers"
+        >
             <IndividualCover
                 alt1={alt1}
                 alt2={alt2}
