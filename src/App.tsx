@@ -60,7 +60,7 @@ export default function App() {
                     }
                 </AnimatePresence>
 
-                <DefaultActionableButton
+                {/* <DefaultActionableButton
                     onClickDefaultActionableButton={
                         () => setOpenSidebarMain(prevState => !prevState)
                     }
@@ -81,7 +81,7 @@ export default function App() {
                             : '/pictures/icons/side-menu.png'
                     }
                     classCss="btnSidebarMain"
-                />
+                /> */}
 
                 <AnimatePresence>
                     {
@@ -113,14 +113,58 @@ export default function App() {
                                         alt: 'Flecha con forma de calamar apuntando hacia abajo de color morado.',
                                         cssLink: '180deg',
                                         src: '/pictures/logos/callie_flowingBar.png',
-                                        to: '#splatoon1-maincover'
+                                        to: '#splatoon2-maincover'
                                     },
                                     {
                                         ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 1',
                                         alt: 'Flecha con forma de calamar apuntando hacia abajo de color verde.',
                                         cssLink: '180deg',
                                         src: '/pictures/logos/marie_flowingBar.png',
+                                        to: '#splatoon2-maincover'
+                                    }
+                                ]}
+                            />
+
+                            <FlowingBar
+                                title={"EXPLORA INKOPOLIS SQUARE"}
+                                subT={"y llega a la tierra prometida"}
+                                ariaLabelBar={'Lista de redirecciones hacia las portadas principales'}
+                                links={[
+                                    {
+                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 1',
+                                        alt: 'Flecha con forma de calamar apuntando hacia abajo de color beige.',
+                                        cssLink: '0deg',
+                                        src: '/pictures/logos/pearl_flowingBar.png',
                                         to: '#splatoon1-maincover'
+                                    },
+                                    {
+                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 2',
+                                        alt: 'Flecha con forma de pulpo apuntando hacia abajo de color grisaceo.',
+                                        cssLink: '180deg',
+                                        src: '/pictures/logos/marina_flowingBar.png',
+                                        to: '#splatoon3-maincover'
+                                    }
+                                ]}
+                            />
+
+                            <FlowingBar
+                                title={"SUMÉRGETE EN TINTELIA"}
+                                subT={"y la verdad de Alterna"}
+                                ariaLabelBar={'Lista de redirecciones hacia las portadas principales'}
+                                links={[
+                                    {
+                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 2',
+                                        alt: 'Flecha con forma de calamar apuntando hacia arriba de color naranja.',
+                                        cssLink: '0deg',
+                                        src: '/pictures/logos/fyre_flowingBar.png',
+                                        to: '#splatoon2-maincover'
+                                    },
+                                    {
+                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 2',
+                                        alt: 'Flecha con forma de pulpo apuntando hacia arriba de color azul.',
+                                        cssLink: '0deg',
+                                        src: '/pictures/logos/shiver_flowingBar.png',
+                                        to: '#splatoon2-maincover'
                                     }
                                 ]}
                             />

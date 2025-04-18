@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import './styles/flowingBar.css'
 
 interface Props {
     title: string,
@@ -23,16 +24,19 @@ const FlowingBar = (
     }: Props
 ) => {
     return (
-        <section>
-            <h2>{title}</h2>
-            <p>{subT}</p>
+        <section className="FlowingBar">
+            <h2 className="FlowingBar__title">{title}</h2>
+            <p className="FlowingBar__subT">{subT}</p>
 
             {
                 links.length > 0
                 && ariaLabelBar.length > 0
                 &&
 
-                <ul aria-label={ariaLabelBar}>
+                <ul
+                    aria-label={ariaLabelBar}
+                    className="FlowingBar__listRedirects"
+                >
                     {
                         links.map(link => {
 
@@ -46,12 +50,15 @@ const FlowingBar = (
 
                             return (
                                 <li
+                                    className="FlowingBar__listRedirects__redirection"
                                     key={ariaLabelLink}
                                 >
                                     <Link
+                                        className="FlowingBar__listRedirects__redirection--link"
                                         aria-label={ariaLabelLink}
                                         to={to}>
                                         <img
+                                            className="FlowingBar__listRedirects__redirection__icon"
                                             alt={alt}
                                             src={src}
                                             style={{

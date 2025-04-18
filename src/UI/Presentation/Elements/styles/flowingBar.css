@@ -1,0 +1,62 @@
+.FlowingBar {
+    width: 100%;
+
+    background-color: rgb(5, 5, 12);
+
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: relative;
+
+    padding: .4em 0px;
+
+    font-size: 16px;
+}
+
+.FlowingBar__title {
+    font-size: 1.5em;
+}
+
+.FlowingBar__subT {
+    font-size: 1.2em;
+}
+
+.FlowingBar__title,
+.FlowingBar__subT {
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.851);
+
+    z-index: 10;
+    pointer-events: none;
+
+    text-align: center;
+}
+
+.FlowingBar__listRedirects {
+    position: absolute;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    gap: clamp(150px, 60vw, 700px);
+}
+
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .FlowingBar__listRedirects__redirection__icon {
+        width: 4em;
+    }
+}
+
+@media (min-width: 769px) {
+    .FlowingBar__listRedirects__redirection__icon {
+        width: 5em;
+    }
+}

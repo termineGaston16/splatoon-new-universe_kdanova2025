@@ -32,8 +32,8 @@
 
 @media (min-width: 320px) and (max-width: 768px) {
     .FirstView__videoPresentation {
-        width: 300px;
-        height: 200px;
+        width: 18em;
+        height: 11em;
     }
 
     .FirstView__credits {
@@ -44,7 +44,7 @@
 
 @media (min-width: 769px) {
     .FirstView__videoPresentation {
-        width: 400px;
-        height: 250px;
+        width: 25em;
+        height: 15em;
     }
 }
