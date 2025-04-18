@@ -11,6 +11,7 @@ import FlowingBar from "./UI/Presentation/Elements/FlowingBar";
 import MainCovers from "./GeneralProfile/Presentation/Components/MainCovers";
 import MainFooter from "./UI/Presentation/Components/MainFooter";
 import Gallery from "./Gallery/Gallery";
+import ProfileSidebar from "./UI/Presentation/Components/ProfileSidebar";
 
 const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
 const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
@@ -63,29 +64,6 @@ export default function App() {
                     }
                 </AnimatePresence>
 
-                <DefaultActionableButton
-                    onClickDefaultActionableButton={
-                        () => setOpenSidebarMain(prevState => !prevState)
-                    }
-                    textDefaultActionableButton={
-                        openSidebarMain ? 'CERRAR' : 'MENÚ'
-                    }
-                    altDefaultActionableButton={
-                        openSidebarMain
-                            ? '' : ''
-                    }
-                    arialLabel={
-                        openSidebarMain
-                            ? 'Cerrar Menú Lateral' : 'Abrir Menú Lateral'
-                    }
-                    urlDefaultActionableButton={
-                        openSidebarMain
-                            ? '/pictures/icons/close.png'
-                            : '/pictures/icons/side-menu.png'
-                    }
-                    classCss="btnSidebarMain"
-                />
-
                 <AnimatePresence>
                     {
                         openSidebarMain &&
@@ -104,6 +82,30 @@ export default function App() {
                 <main>
                     <Routes>
                         <Route path="/" element={<>
+
+                            <DefaultActionableButton
+                                onClickDefaultActionableButton={
+                                    () => setOpenSidebarMain(prevState => !prevState)
+                                }
+                                textDefaultActionableButton={
+                                    openSidebarMain ? 'CERRAR' : 'MENÚ'
+                                }
+                                altDefaultActionableButton={
+                                    openSidebarMain
+                                        ? '' : ''
+                                }
+                                arialLabel={
+                                    openSidebarMain
+                                        ? 'Cerrar Menú Lateral' : 'Abrir Menú Lateral'
+                                }
+                                urlDefaultActionableButton={
+                                    openSidebarMain
+                                        ? '/pictures/icons/close.png'
+                                        : '/pictures/icons/side-menu.png'
+                                }
+                                classCss="btnSidebarMain"
+                            />
+
                             <FirstView />
 
                             <FlowingBar
@@ -224,10 +226,170 @@ export default function App() {
                         <Route path="/galeria" element={
                             <Gallery />
                         } />
+                        <Route path="/perfil-general=splatoon" element={<>
+                            <ProfileSidebar
+                                selectors={[
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Acerca de'",
+                                        text: 'Acerca de',
+                                        to: '#acerca-de',
+                                        url: '.'
+                                    },
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Jugabilidad'",
+                                        text: 'Jugabilidad',
+                                        to: '#jugabilidad',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Historia'",
+                                        text: 'Historia',
+                                        to: '#historia',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Splafest'",
+                                        text: 'Splafest',
+                                        to: '#splafest',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Squid Sisters'",
+                                        text: 'Idols',
+                                        to: '/idols=squid-sisters',
+                                        url: '.'
+                                    },
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Regresar al Menú Principal'",
+                                        text: 'Volver',
+                                        to: '/',
+                                        url: '.'
+                                    },
+                                ]}
+                            />
+                        </>} />
+                        <Route path="/perfil-general=splatoon2" element={<>
+                            <ProfileSidebar
+                                selectors={[
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Acerca de'",
+                                        text: 'Acerca de',
+                                        to: '#acerca-de',
+                                        url: '.'
+                                    },
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Jugabilidad'",
+                                        text: 'Jugabilidad',
+                                        to: '#jugabilidad',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Historia'",
+                                        text: 'Historia',
+                                        to: '#historia',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Splafest'",
+                                        text: 'Splafest',
+                                        to: '#splafest',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Off The Hook'",
+                                        text: 'Idols',
+                                        to: '/idols=off-the-hook',
+                                        url: '.'
+                                    },
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección OctoExpansión",
+                                        text: 'Octo',
+                                        to: '#octo-expansion',
+                                        url: '.'
+                                    },
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección SalmonRun",
+                                        text: 'SalmonRun',
+                                        to: '#salmon-run',
+                                        url: '.'
+                                    },
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Regresar al Menú Principal",
+                                        text: 'Volver',
+                                        to: '/',
+                                        url: '.'
+                                    }
+                                ]}
+                            />
+                        </>} />
+                        <Route path="/perfil-general=splatoon3" element={<>
+                            <ProfileSidebar
+                                selectors={[
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Acerca de'",
+                                        text: 'Acerca de',
+                                        to: '#acerca-de',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Historia'",
+                                        text: 'Historia',
+                                        to: '#historia',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Splafest'",
+                                        text: 'Splafest',
+                                        to: '#splafest',
+                                        url: '.'
+                                    }
+                                    ,
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Ir a la sección 'Deep Cut'",
+                                        text: 'Idols',
+                                        to: '/idols=deep-cut',
+                                        url: '.'
+                                    },
+                                    {
+                                        alt: '',
+                                        ariaLabel: "Regresar al Menú Principal'",
+                                        text: 'Volver',
+                                        to: '/',
+                                        url: '.'
+                                    },
+                                ]}
+                            />
+                        </>} />
                     </Routes>
                 </main>
 
-                {!openSidebarMain && <MainFooter />}
+                {/* {!openSidebarMain && <MainFooter />} */}
             </Suspense>
         </BrowserRouter>
     )

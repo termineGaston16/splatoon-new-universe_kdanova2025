@@ -1,4 +1,5 @@
 import ProfileDataSelector from "../Elements/ProfileDataSelector";
+import './styles/profileSideBar.css'
 
 interface Props {
     selectors: {
@@ -14,8 +15,10 @@ const ProfileSideBar = ({
     selectors
 }: Props) => {
     return (
-        <aside>
-            <ul aria-label="Selectores de Paneles">
+        <aside className="ProfileSideBar">
+            <ul
+                className="ProfileSideBar__selectors"
+                aria-label="Selectores de Paneles">
                 {
                     selectors.map((selectorInfo, index) => {
                         const {
@@ -28,6 +31,7 @@ const ProfileSideBar = ({
 
                         return (
                             <li
+                                className="ProfileSideBar__selectors__selector"
                                 key={index}>
                                 <ProfileDataSelector
                                     alt={alt}

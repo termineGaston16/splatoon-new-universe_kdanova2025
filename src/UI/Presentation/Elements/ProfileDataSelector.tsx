@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 interface Props {
     alt: string,
     url: string,
@@ -16,19 +14,21 @@ const ProfileDataSelector = ({
     ariaLabel
 }: Props) => {
     return (
-        <Link
+        <a
+            className="ProfileSideBar__selectors__selector--link"
             aria-label={ariaLabel}
-            to={to}
+            href={to}
         >
             <img
+                className="ProfileSideBar__selectors__selector__icon"
                 alt={alt}
                 src={url}
                 loading="lazy"
             />
-            <span>
+            <span className="ProfileSideBar__selectors__selector__text">
                 {text}
             </span>
-        </Link>
+        </a>
     )
 }
 

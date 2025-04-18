@@ -1,0 +1,77 @@
+.ProfileSideBar {
+    font-size: 16px;
+    background-color: rgb(4, 4, 4);
+
+    gap: 1em;
+
+    padding: .5em;
+
+    position: fixed;
+
+    bottom: 0;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProfileSideBar__selectors {
+    width: 100%;
+    max-width: 1024px;
+    height: 100%;
+
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1em;
+
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ProfileSideBar__selectors__selector {
+    width: 100%;
+}
+
+.ProfileSideBar__selectors__selector--link {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+}
+
+.ProfileSideBar__selectors__selector__icon {
+    display: none;
+}
+
+.ProfileSideBar__selectors__selector__text {
+    color: white;
+    text-align: center;
+
+    text-shadow: 1px 1px 0px rgb(74, 225, 255);
+    transition: all .3s linear;
+}
+
+.ProfileSideBar__selectors__selector__text:hover {
+    text-shadow: 0px 0px 5px rgb(255, 255, 255);
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .ProfileSideBar__selectors__selector__text {
+        font-size: .58em;
+    }
+}
+
+@media (min-width: 768px) {
+    .ProfileSideBar__selectors__selector__text {
+        font-size: 1em;
+    }
+}
