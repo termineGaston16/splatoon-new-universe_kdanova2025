@@ -1,10 +1,13 @@
+import './styles/firstView.css'
+
 export default function FirstView() {
     return (
-        <header>
+        <header className='FirstView'>
             <img
                 loading="lazy"
                 alt="Logo Principal de Splatoon New Universe"
                 src="/pictures/logos/splatoon-new-universe_logo-principal.png"
+                className='FirstView__mainLogo'
             />
 
             <iframe
@@ -16,18 +19,14 @@ export default function FirstView() {
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen />
+                allowFullScreen
+                className='FirstView__videoPresentation'
+            />
 
-            <p>
-                <span>Nombre del vídeo:</span>
-                【スプラトゥーン3 発売記念】SPLALBUM
+            <p className='FirstView__credits'>
+                <span className='FirstView__credits--span'>Nombre del vídeo:</span> スプラトゥーン3 発売記念】SPLALBUM <br />
+                <span className='FirstView__credits--span'>Autor:</span>  Kirisame Rain
             </p>
-
-            <p>
-                <span>Autor:</span>
-                Kirisame Rain
-            </p>
-
         </header>
     )
 }

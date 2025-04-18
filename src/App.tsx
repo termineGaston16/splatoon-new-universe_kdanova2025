@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { lazy, Suspense, useEffect, useState } from "react";
 import FirstLoad from "./UI/Presentation/Components/Suspense/FirstLoad";
 import MainNavbar from "./UI/Presentation/Components/MainNavbar";
@@ -6,6 +6,7 @@ import DefaultActionableButton from "./UI/Presentation/Elements/DefaultActionabl
 import { AnimatePresence } from "framer-motion";
 import SidebarMain from "./UI/Presentation/Components/SidebarMain";
 import BlackBackground from "./UI/Presentation/Elements/BlackBackground";
+import FirstView from "./UI/Presentation/Components/FirstView";
 
 const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
 const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
@@ -98,6 +99,9 @@ export default function App() {
 
                 <main>
                     <Routes>
+                        <Route path="/" element={
+                            <FirstView />
+                        } />
                     </Routes>
                 </main>
             </Suspense>

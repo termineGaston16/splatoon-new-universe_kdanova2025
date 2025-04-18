@@ -1,0 +1,50 @@
+.FirstView {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 3em;
+    padding: 1em 0px;
+
+    font-size: 16px;
+}
+
+.FirstView__mainLogo {
+    width: 280px;
+}
+
+.FirstView__videoPresentation {
+    border: .5em double rgb(201, 255, 39);
+    box-shadow: 1em 1em 0px rgba(0, 0, 0, 0.908);
+}
+
+.FirstView__credits {
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.875);
+}
+
+.FirstView__credits--span {
+    color: rgb(59, 248, 255);
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .FirstView__videoPresentation {
+        width: 300px;
+        height: 200px;
+    }
+
+    .FirstView__credits {
+        padding: 0px 1em;
+    }
+}
+
+
+@media (min-width: 769px) {
+    .FirstView__videoPresentation {
+        width: 400px;
+        height: 250px;
+    }
+}
