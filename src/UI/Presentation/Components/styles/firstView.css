@@ -18,7 +18,6 @@
 
 .FirstView__videoPresentation {
     border: .5em double rgb(201, 255, 39);
-    box-shadow: 1em 1em 0px rgba(0, 0, 0, 0.908);
 }
 
 .FirstView__credits {
@@ -34,6 +33,7 @@
     .FirstView__videoPresentation {
         width: 18em;
         height: 11em;
+        box-shadow: .5em .5em 0px rgba(0, 0, 0, 0.908);
     }
 
     .FirstView__credits {
@@ -46,5 +46,6 @@
     .FirstView__videoPresentation {
         width: 25em;
         height: 15em;
+        box-shadow: 1em 1em 0px rgba(0, 0, 0, 0.908);
     }
 }

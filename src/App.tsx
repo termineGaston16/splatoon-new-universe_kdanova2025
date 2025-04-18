@@ -9,6 +9,7 @@ import BlackBackground from "./UI/Presentation/Elements/BlackBackground";
 import FirstView from "./UI/Presentation/Components/FirstView";
 import FlowingBar from "./UI/Presentation/Elements/FlowingBar";
 import MainCovers from "./GeneralProfile/Presentation/Components/MainCovers";
+import MainFooter from "./UI/Presentation/Components/MainFooter";
 
 const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
 const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
@@ -61,7 +62,7 @@ export default function App() {
                     }
                 </AnimatePresence>
 
-                {/* <DefaultActionableButton
+                <DefaultActionableButton
                     onClickDefaultActionableButton={
                         () => setOpenSidebarMain(prevState => !prevState)
                     }
@@ -82,7 +83,7 @@ export default function App() {
                             : '/pictures/icons/side-menu.png'
                     }
                     classCss="btnSidebarMain"
-                /> */}
+                />
 
                 <AnimatePresence>
                     {
@@ -155,7 +156,7 @@ export default function App() {
                                         to: '#splatoon1-maincover'
                                     },
                                     {
-                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 2',
+                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 3',
                                         alt: 'Flecha con forma de pulpo apuntando hacia abajo de color grisaceo.',
                                         cssLink: '180deg',
                                         src: '/pictures/logos/marina_flowingBar.png',
@@ -187,7 +188,7 @@ export default function App() {
                                 ariaLabelBar={'Lista de redirecciones hacia las portadas principales'}
                                 links={[
                                     {
-                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 2',
+                                        ariaLabelLink: 'Ir hacia el perfil principal de Splatoon 1',
                                         alt: 'Flecha con forma de calamar apuntando hacia arriba de color naranja.',
                                         cssLink: '0deg',
                                         src: '/pictures/logos/fyre_flowingBar.png',
@@ -221,6 +222,8 @@ export default function App() {
                         </>} />
                     </Routes>
                 </main>
+
+                {!openSidebarMain && <MainFooter />}
             </Suspense>
         </BrowserRouter>
     )
