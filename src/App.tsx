@@ -389,7 +389,7 @@ export default function App() {
                     </Routes>
                 </main>
 
-                {/* {!openSidebarMain && <MainFooter />} */}
+                {!openSidebarMain && <MainFooter />}
             </Suspense>
         </BrowserRouter>
     )
