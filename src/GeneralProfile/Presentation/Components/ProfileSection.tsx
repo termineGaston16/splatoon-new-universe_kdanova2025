@@ -1,4 +1,5 @@
 import ProfileInfoSection from "../../../UI/Presentation/Components/ProfileInfoSection";
+import './style/profileSection.css'
 
 interface ProfileSectionProps {
     idSection: string,
@@ -20,9 +21,16 @@ const ProfileSection = ({
 }: ProfileSectionProps) => {
 
     return (
-        <article id={idSection}>
-            <h2>{mainTitle}</h2>
-            <ul>
+        <article
+            className="ProfileSection"
+            id={idSection}>
+            <h2
+                className="ProfileSection__title"
+            >{mainTitle}
+            </h2>
+            <ul
+                className="ProfileSection__sections"
+            >
                 {
                     sections.map((section, index) => {
                         const {
@@ -36,6 +44,7 @@ const ProfileSection = ({
 
                         return (
                             <li
+                                className="ProfileSection__sections__section"
                                 key={index}>
                                 <ProfileInfoSection
                                     info={info}
@@ -44,6 +53,9 @@ const ProfileSection = ({
                                     iframeTitle={iframeTitle}
                                     imgAlt={imgAlt}
                                     imgUrl={imgUrl}
+                                    orderText={
+                                        index % 2 === 0 ? 0 : 1
+                                    }
                                 />
                             </li>
                         )

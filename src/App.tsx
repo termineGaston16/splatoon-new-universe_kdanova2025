@@ -38,6 +38,41 @@ export default function App() {
 
     const [openSidebarMain, setOpenSidebarMain] = useState<boolean>(false);
 
+    const [mainBackground, setMainBackground] = useState<null | {
+        backgroundUrl: string,
+        backgroundPosition: string,
+        backgroundSize: string,
+        backgroundRepeat: string,
+        backgroundAttachment: string
+    }>(null);
+
+    useEffect(() => {
+        const htmlDoc = document.querySelector('#app') as HTMLElement;
+
+        if (mainBackground !== null) {
+            const {
+                backgroundUrl,
+                backgroundAttachment,
+                backgroundPosition,
+                backgroundRepeat,
+                backgroundSize,
+            } = mainBackground;
+
+            htmlDoc.style.backgroundImage = `url(${backgroundUrl})`;
+            htmlDoc.style.backgroundAttachment = backgroundAttachment;
+            htmlDoc.style.backgroundPosition = backgroundPosition;
+            htmlDoc.style.backgroundRepeat = backgroundRepeat;
+            htmlDoc.style.backgroundSize = backgroundSize;
+        } else {
+            htmlDoc.style.backgroundImage = `url(${"/pictures/backgrounds/index_background.webp"})`;
+            htmlDoc.style.backgroundAttachment = "fixed";
+            htmlDoc.style.backgroundPosition = "center center";
+            htmlDoc.style.backgroundRepeat = "no-repeat";
+            htmlDoc.style.backgroundSize = "cover";
+        }
+
+    }, [mainBackground])
+
     return (
         <BrowserRouter>
             <Suspense
@@ -107,7 +142,9 @@ export default function App() {
                                 classCss="btnSidebarMain"
                             />
 
-                            <FirstView />
+                            <FirstView
+                                setMainBackground={setMainBackground}
+                            />
 
                             <FlowingBar
                                 title={"VISITA CRÓMOPOLIS"}
@@ -142,7 +179,7 @@ export default function App() {
                                 url4={"/pictures/logos/squidSisters-mainCovers.png"}
                                 linkCoverOne={"/perfil-general=splatoon"}
                                 ariaLabelCoverOne={"Acceder al Perfil general del Splatoon 1"}
-                                linkCoverTwo={"/idols=squid-sisters"}
+                                linkCoverTwo={"/"}
                                 ariaLabelCoverTwo={"Acceder al Perfil general de las Squid Sisters"}
                                 idNav="splatoon1-maincover"
                             />
@@ -178,7 +215,7 @@ export default function App() {
                                 url2={"/pictures/logos/offTheHook-mainCovers.png"}
                                 url3={"/pictures/backgrounds/splatoon2_mainCovers.webp"}
                                 url4={"/pictures/logos/splatoon2-mainCovers.png"}
-                                linkCoverOne={"/idols=off-the-hook"}
+                                linkCoverOne={"/"}
                                 ariaLabelCoverOne={"Acceder al Perfil general de Off The Hook"}
                                 linkCoverTwo={"/perfil-general=splatoon2"}
                                 ariaLabelCoverTwo={"Acceder al Perfil general del Splatoon 2"}
@@ -219,13 +256,15 @@ export default function App() {
                                 url4={"/pictures/logos/deepCut-mainCovers.png"}
                                 linkCoverOne={"/perfil-general=splatoon3"}
                                 ariaLabelCoverOne={"Acceder al Perfil general del Splatoon 3"}
-                                linkCoverTwo={"/idols=deep-cut"}
+                                linkCoverTwo={"/"}
                                 ariaLabelCoverTwo={"Acceder al Perfil general de Deep Cut"}
                                 idNav="splatoon3-maincover"
                             />
                         </>} />
                         <Route path="/galeria" element={
-                            <Gallery />
+                            <Gallery
+                                setMainBackground={setMainBackground}
+                            />
                         } />
                         <Route path="/perfil-general=splatoon" element={<>
                             <ProfileSidebar
@@ -260,26 +299,26 @@ export default function App() {
                                         to: '#splafest',
                                         url: '.'
                                     }
-                                    ,
-                                    {
-                                        alt: '',
-                                        ariaLabel: "Ir a la sección 'Squid Sisters'",
-                                        text: 'Idols',
-                                        to: '/idols=squid-sisters',
-                                        url: '.'
-                                    },
-                                    {
-                                        alt: '',
-                                        ariaLabel: "Regresar al Menú Principal'",
-                                        text: 'Volver',
-                                        to: '/',
-                                        url: '.'
-                                    },
+                                    // ,
+                                    // {
+                                    //     alt: '',
+                                    //     ariaLabel: "Ir a la sección 'Squid Sisters'",
+                                    //     text: 'Idols',
+                                    //     to: '/idols=squid-sisters',
+                                    //     url: '.'
+                                    // }
                                 ]}
                             />
 
                             <GeneralProfile
-                                mainBackground={"/pictures/backgrounds/splatoon1_profileSection.jpg"}
+                                setMainBackground={setMainBackground}
+                                mainBackground={{
+                                    backgroundUrl: '/pictures/backgrounds/splatoon1_profileSection.jpg',
+                                    backgroundAttachment: 'fixed',
+                                    backgroundPosition: 'center center',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'cover'
+                                }}
                                 profilesSections={[
                                     {
                                         idSection: 'acerca-de',
@@ -511,7 +550,9 @@ export default function App() {
                                         ]
                                     }
                                 ]} />
-                        </>} />
+
+                        </>}
+                        />
                         <Route path="/perfil-general=splatoon2" element={<>
                             <ProfileSidebar
                                 selectors={[
@@ -546,13 +587,13 @@ export default function App() {
                                         url: '.'
                                     }
                                     ,
-                                    {
-                                        alt: '',
-                                        ariaLabel: "Ir a la sección 'Off The Hook'",
-                                        text: 'Idols',
-                                        to: '/idols=off-the-hook',
-                                        url: '.'
-                                    },
+                                    // {
+                                    //     alt: '',
+                                    //     ariaLabel: "Ir a la sección 'Off The Hook'",
+                                    //     text: 'Idols',
+                                    //     to: '/idols=off-the-hook',
+                                    //     url: '.'
+                                    // },
                                     {
                                         alt: '',
                                         ariaLabel: "Ir a la sección OctoExpansión",
@@ -560,22 +601,308 @@ export default function App() {
                                         to: '#octo-expansion',
                                         url: '.'
                                     },
-                                    {
-                                        alt: '',
-                                        ariaLabel: "Ir a la sección SalmonRun",
-                                        text: 'SalmonRun',
-                                        to: '#salmon-run',
-                                        url: '.'
-                                    },
-                                    {
-                                        alt: '',
-                                        ariaLabel: "Regresar al Menú Principal",
-                                        text: 'Volver',
-                                        to: '/',
-                                        url: '.'
-                                    }
+                                    // {
+                                    //     alt: '',
+                                    //     ariaLabel: "Ir a la sección SalmonRun",
+                                    //     text: 'SalmonRun',
+                                    //     to: '#salmon-run',
+                                    //     url: '.'
+                                    // }
                                 ]}
                             />
+
+                            <GeneralProfile
+                                setMainBackground={setMainBackground}
+                                mainBackground={{
+                                    backgroundUrl: '/pictures/backgrounds/splatoon2_profileSection.jpg',
+                                    backgroundAttachment: 'fixed',
+                                    backgroundPosition: 'center center',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'cover'
+                                }}
+                                profilesSections={[
+                                    {
+                                        idSection: 'acerca-de',
+                                        mainTitle: 'Acerca de',
+                                        sections: [
+                                            {
+                                                info: `
+                                                ¡Ahora se suman los Octolings!
+                                                Fue lanzado a nivel mundial el 21 de julio de 2017. Hasta finales de 2021, se situó como el noveno título más vendido en la historia de su consola.
+                                                En diciembre del mismo año, había superado las 13.13 millones de copias en 
+                                                formato físico y digital. Según Famitsū, es el quinto juego de 
+                                                Nintendo Switch más exitoso en el mercado japones, con más de 4 
+                                                millones de unidades distribuidas.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de video para la presentación de Splatoon 2 - 2017
+                                                `,
+                                                iframeTitle: 'Splatoon 2 - Nintendo Switch Presentation 2017 Trailer',
+                                                iframeUrl: "https://www.youtube.com/embed/qN4w5D2tzME?si=Tsm5tC_xAoH395xp"
+                                            },
+                                            {
+                                                info: `
+                                                Respecto a la primera entrega incluye novedades como un remozado modo en 
+                                                solitario, cambios en el sistema de juego, un mayor arsenal y nuevos 
+                                                estilos de combate.
+                                                El 13 de junio de 2018 se publicó una expansión de contenido descargable, 
+                                                Splatoon 2: Octo Expansion, que amplía el modo individual con una nueva 
+                                                historia desde el punto de vista de otra especie cefalópoda, los Octolings.
+                                                `,
+                                                imgAlt: `
+                                                Ilustración colorida de estilo veraniego con cuatro personajes del 
+                                                videojuego Splatoon en poses dinámicas. Están vestidos con ropa casual y 
+                                                deportiva, como camisetas sin mangas, gafas de sol y zapatillas modernas. 
+                                                Cada personaje sostiene un arma de tinta característica del juego. 
+                                                `,
+                                                imgUrl: "/pictures/details/img1_sp2_profileInfoSection.png"
+                                            },
+                                            {
+                                                info: `
+                                                La prensa especializada emitió críticas favorables. Entre los aspectos positivos 
+                                                se mencionan las novedades, el apartado gráfico y el mayor desarrollo de la 
+                                                modalidad para un jugador, además del sistema de juego y la estabilidad de la 
+                                                conexión en los combates en línea.
+                                                Como puntos negativos los críticos señalaron la ausencia de multijugador 
+                                                con pantalla dividida, el sistema de emparejamiento aleatorio o la falta 
+                                                de chat de voz.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de video del lanzamiento oficial de Splatoon 2
+                                                `,
+                                                iframeTitle: "Splatoon 2 Launch Trailer - Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/ylBYfndq8fU?si=9G1XItvTLuNtwNm-"
+                                            }, {
+                                                info: `
+                                                Que Splatoon tuviera una secuela fue objeto de burlas y de diversos 
+                                                memes durante el mes de octubre de 2016.
+                                                Splatoon 2 está basado 2 años en el futuro y es el tiempo transcurrido 
+                                                desde el primer juego y el número de la entrega.
+                                                `,
+                                                imgAlt: `
+                                                Ilustración promocional del juego Splatoon 2 con el texto “Inktastic Summer” 
+                                                en la esquina superior izquierda. Cuatro Inklings sonrientes posan para una 
+                                                foto veraniega con actitud alegre y relajada, abrazándose entre ellos.   
+                                                `,
+                                                imgUrl: "/pictures/details/img2_sp2_profileInfoSection.jpg"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        idSection: 'jugabilidad',
+                                        mainTitle: 'Jugabilidad',
+                                        sections: [
+                                            {
+                                                info: `
+                                                La mecánica del juego sigue siendo la misma: un juego de disparos en 
+                                                tercera persona enfocado en el multijugador online, donde ocho jugadores 
+                                                se dividen en dos equipos de cuatro. Su tarea consiste en cubrir el 
+                                                escenario con tanta tinta del color de su equipo como sea posible dentro 
+                                                de un límite de tiempo.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de video de la nueva actualización 4.0 del videojuego.
+                                                `,
+                                                iframeTitle: "Splatoon 2 Ver. 4 - Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/UzuOw50zmbU?si=2GXRPa3RzxOPmvUa"
+                                            },
+                                            {
+                                                info: `
+                                                El juego añade nuevos tipos de armas y las armas del primer juego han sido 
+                                                alteradas con nuevas mecánicas, como las pistolas duales. 
+                                                Se han añadido nuevas armas especiales como el atormentador, también se han 
+                                                añadido nueva indumentaria como los pantalones y los cortes de pelo. 
+                                                El juego admite multijugador local con varias consolas de Nintendo Switch. 
+                                                Se implementaron nuevas tintas, nuevas marcas, nuevos peinados, 
+                                                un nuevo modo multijugador llamado Salmon Run y nuevos amiibo.
+                                                `,
+                                                imgAlt: `
+                                                Captura de pantalla del videojuego Splatoon 2 que muestra a cuatro 
+                                                Inklings sobre una plataforma metálica circular con tinta rosa en el 
+                                                centro. Cada personaje sostiene un arma diferente de tinta en color 
+                                                rosa, y visten ropa urbana y moderna, como gorras, zapatillas deportivas, 
+                                                camisetas gráficas y gafas.
+                                                `,
+                                                imgUrl: "/pictures/details/img3_sp2_profileInfoSection.jpg"
+                                            },
+                                            {
+                                                info: `
+                                                En esta edición se incluye un modo cooperativo llamado Salmon Run, donde 
+                                                los jugadores deben colaborar para derrotar a enemigos que aparecen en 
+                                                hordas en la pantalla, utilizando armas específicas. Al derrotar a estos 
+                                                enemigos, los jugadores pueden recolectar alevines dorados que dejan atrás, 
+                                                los cuales pueden ser intercambiados por dinero y accesorios especiales. 
+                                                Es importante destacar que, a diferencia de los demás modos de juego, 
+                                                Salmon Run es temporal y solo aparece en franjas horarias específicas que 
+                                                son anunciadas con antelación.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de vídeo de la actualización de verano del Splatoon 2.
+                                                `,
+                                                iframeTitle: "Splatoon 2 - Huge Holiday Updates! - Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/U1gyg1HjPOY?si=ED0V0y8KAHNoIX1d"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        idSection: 'historia',
+                                        mainTitle: 'Historia',
+                                        sections: [
+                                            {
+                                                info: `
+                                                    ¡Alerta de Spoiler!
+                                                    La acción de Splatoon 2 transcurre dos años después del último festival, 
+                                                    donde Tina derrotó a su prima Mar en la encuesta de popularidad del 
+                                                    dúo que ambas forman, las Squid Sisters. En la primera parte, se revela
+                                                    que las ellas no son solo un grupo pop, sino que también tienen una 
+                                                    identidad secreta como agentes 1 y 2 del Comando Branquias. Junto con 
+                                                    el agente 3 (encarnado por el jugador), habían logrado detener al líder 
+                                                    de los octarianos, DJ Octovius.
+                                                    La relación entre las primas se ve afectada por el resultado de la 
+                                                    encuesta, lo que las lleva a distanciarse. Posteriormente, 
+                                                    Tina regresa a Inkpolis Square y descubre que tanto Mar como 
+                                                    el Gran Siluro que proporciona electricidad a la ciudad han 
+                                                    desaparecido.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de vídeo del Adelanto del modo un jugador del Splatoon 2
+                                                `,
+                                                iframeTitle: 'Splatoon 2 - Single Player Trailer - Nintendo Switch',
+                                                iframeUrl: 'https://www.youtube.com/embed/869_lwZfyTo?si=OvVquXmSLwRXNIV_'
+                                            },
+                                            {
+                                                info: `
+                                                Temiendo que los octarianos estén detrás del caso, retoma su identidad 
+                                                secreta como "agente 2" del Comando Branquias y recluta en la plaza a un 
+                                                Inkling, el personaje del usuario, que se convierte en el "agente 4" e 
+                                                investiga lo sucedido.
+                                                Con la ayuda de Tina y el experto en armas Jairo, el agente 4 debe recorrer 
+                                                los cinco mundos que componen el Valle Pulpo y recuperar todos los siluros o 
+                                                volbagres robados, incluyendo aquellos que dan energía a las máquinas de los 
+                                                jefes de nivel. A lo largo de la historia, se descubre que Mar ha sido 
+                                                secuestrada y manipulada mentalmente por DJ Octovius, quien ha logrado 
+                                                fugarse de prisión y utiliza el Gran Siluro para poner en marcha su nuevo 
+                                                escenario, el Octotrón.
+                                                `,
+                                                imgAlt: `
+                                                Ilustración vibrante y estilizada de Splatoon 2: Octo Expansion, 
+                                                con una composición caótica y llena de personajes. En el centro 
+                                                inferior están Marie, vestida con un kimono negro y sosteniendo 
+                                                una sombrilla japonesa, y el Agente 8, un Inkling amarillo en pose 
+                                                desafiante con un arma de tinta. 
+                                                `,
+                                                imgUrl: "/pictures/details/img4_sp2_profileInfoSection.png"
+                                            },
+                                            {
+                                                info: `
+                                                En él último nivel, el agente 4 debe destruir el Octotrón para que Tina y 
+                                                Jairo liberen a Mar del control mental al que está sometida. 
+                                                Una vez esto sucede, las Squid Sisters actúan juntas de nuevo para 
+                                                ayudar al protagonista en su último enfrentamiento con DJ Octovius, 
+                                                valiéndose del Pez Dorado para derrotarle. En el final del juego, el 
+                                                antagonista es encarcelado en una bola de nieve, el Gran Siluro regresa a 
+                                                Cromópolis, y las cantantes resuelven sus diferencias para volver a los 
+                                                escenarios.
+                                                `
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        idSection: "splafest",
+                                        mainTitle: "¡Splafest!",
+                                        sections: [
+                                            {
+                                                info: `
+                                                Los Splatfests regresaron en Splatoon 2, ahora presentado por los miembros 
+                                                de Off the Hook, Pearl y Marina. La estructura era en gran parte la misma 
+                                                que en el juego anterior. Aunque Miiverse no es compatible con Nintendo 
+                                                Switch, la función de dibujo exclusiva de Splatoon 2 permite a los 
+                                                jugadores enviar garabatos que aparecen en el juego como letreros de 
+                                                neón, pancartas, fuegos artificiales o graffiti, así como cargar 
+                                                garabatos en cuentas de redes sociales.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de vídeo de la primera presentación de las Off The Hook
+                                                `,
+                                                iframeTitle: "Splatoon 2 - Off the Hook introduction",
+                                                iframeUrl: "https://www.youtube.com/embed/okIlIvHnaNw?si=8FP6SFGwj39cY-Se"
+                                            },
+                                            {
+                                                info: `
+                                                Inkopolis Square está decorada de manera similar a Crómopolis en el primer 
+                                                juego, y todas las áreas quedan bloqueadas en la noche mientras Pearl y 
+                                                Marina realizan su evento allí.
+                                                `,
+                                                imgAlt: `
+                                                Escena festiva en una ciudad del universo Splatoon, llena de luces de neón, 
+                                                letreros brillantes y fuegos artificiales en el cielo. Multitudes de 
+                                                Inklings y Octolings se reúnen en las calles, celebrando mientras bailan y 
+                                                observan un escenario iluminado al fondo, donde se desarrolla un 
+                                                espectáculo musical.
+                                                `,
+                                                imgUrl: "/pictures/details/img5_sp2_profileInfoSection.jpg",
+                                            },
+                                            {
+                                                info: `
+                                                Chaos vs Order (también conocido como Final Fest: Splatocalypse) fue muy 
+                                                promocionado como el Splatfest final de Splatoon 2, presentando muchas 
+                                                características especiales y únicas que influirían en los eventos de la 
+                                                secuela. Sin embargo, en 2020, cuatro Splatfests adicionales fueron 
+                                                organizados después de un año de inactividad, durante la pandemia de 
+                                                COVID-19, brindando a los jugadores más entretenimiento durante el encierro.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de vídeo anunciando el último Splafest del Splatoon 2
+                                                `,
+                                                iframeTitle: "Splatoon 2 - Final Splatfest Announcement - Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/PEk-Ib0n2Uc?si=8wR1N4nqcQlPydSJ"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        idSection: "octo-expansion",
+                                        mainTitle: "OctoExpasión",
+                                        sections: [
+                                            {
+                                                info: `
+                                                Splatoon 2: Octo Expansion añade un completo modo para un jugador que 
+                                                permite a los jugadores tomar el control del nuevo personaje Agente 8, 
+                                                un octoling que ha perdido sus recuerdos. La nueva campaña para un 
+                                                jugador incluye 80 misiones, así como nuevas historias que revelan 
+                                                datos desconocidos sobre personajes queridos de la saga. Los jugadores 
+                                                que completen la campaña Octo Expansion desbloquearán la habilidad de 
+                                                jugar como octolings en los combates multijugador.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproducto de vídeo anunciando el primer adelanto de la Expanción
+                                                `,
+                                                iframeTitle: "Splatoon 2: Octo Expansion Trailer - Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/NBr6GqyuWnA?si=Aysze39WqZRnxRI7"
+                                            },
+                                            {
+                                                info: `
+                                                Utilizando puntos como moneda, el jugador debe navegar por varias 
+                                                estaciones de metro y gastar puntos para completar estos desafíos. 
+                                                El número de puntos ganados o perdidos está determinado por el desempeño 
+                                                del jugador en cada desafío. Estos desafíos incluyen derrotar enemigos 
+                                                dentro de un límite de tiempo, guiar una bola 8 gigante, luchar contra 
+                                                jefes y más. Cada nivel se puede acceder a través del mapa del metro en 
+                                                el mundo central.
+                                                `,
+                                                imgAlt: `
+                                                Ilustración estilizada de Splatoon 2: Octo Expansion con una Octoling 
+                                                femenina corriendo por una delgada cinta de tinta rosa en un espacio 
+                                                oscuro, con una señal de tráfico en la mano. 
+                                                Al fondo se ve una estación de tren iluminada por luces de neón, 
+                                                carteles, una cinta de casete flotando, objetos tecnológicos y manchas 
+                                                de tinta en tonos verdes y violetas.
+                                                `,
+                                                imgUrl: "/pictures/details/img6_sp2_profileInfoSection.png"
+                                            },
+                                        ]
+                                    }
+                                ]} />
+
                         </>} />
                         <Route path="/perfil-general=splatoon3" element={<>
                             <ProfileSidebar
@@ -603,23 +930,217 @@ export default function App() {
                                         to: '#splafest',
                                         url: '.'
                                     }
-                                    ,
-                                    {
-                                        alt: '',
-                                        ariaLabel: "Ir a la sección 'Deep Cut'",
-                                        text: 'Idols',
-                                        to: '/idols=deep-cut',
-                                        url: '.'
-                                    },
-                                    {
-                                        alt: '',
-                                        ariaLabel: "Regresar al Menú Principal'",
-                                        text: 'Volver',
-                                        to: '/',
-                                        url: '.'
-                                    },
+                                    // ,
+                                    // {
+                                    //     alt: '',
+                                    //     ariaLabel: "Ir a la sección 'Deep Cut'",
+                                    //     text: 'Idols',
+                                    //     to: '/idols=deep-cut',
+                                    //     url: '.'
+                                    // }
                                 ]}
                             />
+
+                            <GeneralProfile
+                                setMainBackground={setMainBackground}
+                                mainBackground={{
+                                    backgroundUrl: '/pictures/backgrounds/splatoon3_profileSection.jpg',
+                                    backgroundAttachment: 'fixed',
+                                    backgroundPosition: 'center center',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'cover'
+                                }}
+                                profilesSections={[
+                                    {
+                                        idSection: 'acerca-de',
+                                        mainTitle: 'Acerca de',
+                                        sections: [
+                                            {
+                                                info: `
+                                                El juego se desarrolla en la región de Tintelia, habitada por inklings y 
+                                                octolings endurecidos por la batalla. La historia tiene lugar 
+                                                aproximadamente un año y medio después de los eventos del festival 
+                                                Caos vs Orden, en una ciudad llamada Tintelia (también conocida como 
+                                                la "ciudad del caos"), ubicada en la misma región desértica. 
+                                                Esta nueva entrega tiene lugar fuera de Cromópolis, el escenario 
+                                                principal de los dos primeros juegos de la serie. 
+                                                La ciudad del caos ha experimentado un rápido crecimiento con la 
+                                                llegada de más inklings y octolings que se trasladan a ella. 
+                                                El diseño del juego parece estar inspirado en el caos, y es posible 
+                                                que el resultado del Splatfest de 2019 de Splatoon 2 haya influido en 
+                                                esta decisión.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproducto de vídeo presentado el primer vistazo al Splatoon 3.
+                                                `,
+                                                iframeTitle: "Splatoon 3 - Announcement Trailer - Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/GUYDXVDLmns?si=95-PBIUHoIYdjCG4"
+                                            },
+                                            {
+                                                info: `
+                                                Splatoon 3 sigue la tradición de sus predecesores en la serie Splatoon, 
+                                                ofreciendo partidas competitivas multijugador en línea junto con un modo 
+                                                para un jugador basado en la historia. La jugabilidad del juego es 
+                                                similar a las entregas anteriores de la serie, con un enfoque en 
+                                                disparos en tercera persona.
+                                                `,
+                                                imgAlt: `
+                                                Imagen promocional de Splatoon 3 con tres personajes Inklings en el centro, 
+                                                cubiertos de tinta amarilla y morada. Cada uno sostiene un arma distinta: 
+                                                un arco de tinta, una pistola y un tanque lanzador de gran tamaño. 
+                                                Todos están en poses dinámicas y decididas, listos para el combate. 
+                                                `,
+                                                imgUrl: "/pictures/details/img1_sp3_profileInfoSection.jpg"
+                                            },
+                                            {
+                                                info: `
+                                                    También se incorporan nuevas funciones en Tintelia, como accesorios, 
+                                                    casilleros y el combate territorial con cartas, entre otros. 
+                                                    En la región de Tintelia, los jugadores podrán entrar al campo de 
+                                                    batalla utilizando el dron generador, que les permitirá 
+                                                    apuntar a la ubicación de despliegue deseada dentro de un 
+                                                    cierto alcance.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de vídeo anunciando la fecha de estreno del Splatoon 3
+                                                `,
+                                                iframeTitle: "Splatoon 3 – Release Date Revealed - Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/Rkz-PjCQjWk?si=no1Z1d6MiGvaGwWr"
+                                            },
+                                            {
+                                                info: `
+                                                Después de elegir dónde desplegar, el dron generador los lanzará a esa 
+                                                ubicación en forma de calamar o pulpo de manera similar a un Super Jump. 
+                                                Aunque los puntos de generación regulares siguen presentes en el escenario, 
+                                                no se ha confirmado si serán utilizables.
+                                                `,
+                                                imgAlt: `
+                                                    Ilustración promocional de Splatoon 3 con un grupo de ocho Inklings y 
+                                                    Octolings en acción, cada uno portando diferentes armas de tinta como 
+                                                    rodillos, pinceles, pistolas, cargadores y un arco. 
+                                                    Todos están en poses dinámicas, listos para la batalla, 
+                                                    con expresiones decididas.
+                                                `,
+                                                imgUrl: "/pictures/details/img2_sp3_profileInfoSection.png"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        idSection: "historia",
+                                        mainTitle: `Historia`,
+                                        sections: [
+                                            {
+                                                info: `
+                                                ¡Alerta de Spoiler!
+                                                La trama de Splatoon 3 sigue al jugador, el Agente 3, y su pequeño amigo 
+                                                Smallfry (Cenutrín en Español) en una misión para recuperar el Great 
+                                                Zapfish, que ha vuelto a desaparecer y es crucial para alimentar la 
+                                                energía en Splatsville.
+                                                Durante su búsqueda, el jugador se une a las Squid Sisters, 
+                                                Callie y Marie, así como al Capitán Cuttlefish del primer juego. 
+                                                Descubren una ciudad subterránea cubierta de cieno borroso y 
+                                                tomada por los octarianos, Alterna.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproductor de vídeo anunciando el modo historia del Splatoon 3
+                                                `,
+                                                iframeTitle: "Splatoon 3 – “Return of the Mammalians” – Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/Z4ngPsn5d5A?si=-8LGKlctwSMeNqYz"
+                                            },
+                                            {
+                                                info: `
+                                                En su exploración, luchan contra un grupo llamado Deep Cut, que busca un 
+                                                tesoro valioso para ayudar a los ciudadanos de Splatsville.
+                                                A medida que el jugador avanza, se revela que el Sr. Grizz, el director 
+                                                ejecutivo de Grizzco, ha capturado a Cuttlefish y robado el Great Zapfish 
+                                                junto con el ejército octariano.
+                                                El jugador se enfrenta a varias dificultades, pero con la ayuda de sus 
+                                                nuevos aliados, construyen una cortadora de césped para llegar al cohete 
+                                                donde Cuttlefish está siendo retenido.
+                                                Descubren que el Sr. Grizz es en realidad un enorme oso y uno de los pocos 
+                                                mamíferos que quedan. Grizz planea usar el cohete para cubrir la Tierra 
+                                                con cieno borroso, pero el Agente 3 y sus aliados trabajan juntos para 
+                                                detenerlo.
+                                                `,
+                                                imgAlt: `
+                                                    Ilustración promocional de Splatoon 3: Return of the Mammalians, con varios 
+                                                    personajes principales y antagonistas del modo historia dispuestos en una 
+                                                    composición vertical sobre fondo negro. En la parte superior aparecen enemigos 
+                                                    como mamíferos mutados, un cangrejo gigante y figuras misteriosas.
+                                                `,
+                                                imgUrl: "/pictures/details/img3_sp3_profileInfoSection.jpg"
+                                            }, {
+                                                info: `
+                                                El enfrentamiento final ocurre en el cohete, donde el Agente 3, Smallfry y 
+                                                DJ Octavio enfrentan al Sr. Grizz.
+                                                A pesar de la feroz batalla, el Agente 3 y sus aliados logran derrotar a 
+                                                Grizz y destruir el cohete, salvando el día.
+                                                Finalmente, regresan a la Tierra con el Great Zapfish y Deep Cut continúa 
+                                                trabajando con las Squid Sisters. Aunque parece que Grizz sobrevive y 
+                                                flota en el espacio durante los créditos, su amenaza ha sido detenida y 
+                                                la paz vuelve a Splatsville.
+                                                `,
+                                                imgAlt: `
+                                                Escena del modo historia de Splatoon 3 donde el jugador, con un Inkling 
+                                                en equipo de combate amarillo, se enfrenta a un jefe gigantesco cubierto 
+                                                de pelaje oscuro y tinta púrpura. El jefe tiene forma humanoide, ojos 
+                                                brillantes y placas de tinta en su cuerpo. 
+                                                `,
+                                                imgUrl: "/pictures/details/img4_sp3_profileInfoSection.jpg"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        idSection: "splafest",
+                                        mainTitle: "¡Splafest!",
+                                        sections: [
+                                            {
+                                                info: `
+                                                Los Splafest ahora están organizados por Shiver, Frye y Big Man (Megan, 
+                                                Angie y Rayan en Español) en Deep Cut. Todos desfilan por Splatsville 
+                                                durante el Splatfest, que ahora es una batalla entre tres equipos 
+                                                diferentes, cada uno representado por un miembro diferente. Cada 
+                                                miembro tiene su propio Splatfest Float , sin embargo, todos se 
+                                                combinan para formar un gran escenario que permanece estacionario 
+                                                después del Halftime Report. Deep Cut realiza Anarchy Poisons el 
+                                                primer día de un Splatfest y Anarchy Rainbow el segundo. En 
+                                                Inkopolis Plaza , Callie y Marie actúan una vez más durante 
+                                                Splatfests, cantando City of Color (2023) el primer día y 
+                                                Tomorrow's Nostalgia Today el segundo.
+                                                `,
+                                                iframeAriaLabel: `
+                                                Reproducto de vídeo presentando a las Deep Cut de Splatoon 3.
+                                                `,
+                                                iframeTitle: "Deep Cut: Anarchy Rainbow - Splatoon 3 - Nintendo Switch",
+                                                iframeUrl: "https://www.youtube.com/embed/DtMOAvOWTvY?si=tyc0kqkSx6HWICE5"
+                                            },
+                                            {
+                                                info: `
+                                                En Splatoon 3, hay tres modos diferentes de Splatfest Battle: Open, 
+                                                Pro y Tricolor. El modo Open y el modo Pro están disponibles durante 
+                                                todo el Splatfest, mientras que el modo Tricolor solo está disponible 
+                                                después del Halftime Report. En los modos Open y Pro, el 
+                                                funcionamiento es similar al modo Normal y Pro en Splatoon 2. 
+                                                Los jugadores participan en batallas de Splatfest de manera habitual, 
+                                                y los resultados influyen en el informe de medio tiempo. En el modo 
+                                                Tricolor, los jugadores participan en Tricolor Turf Wars, donde los 
+                                                equipos atacantes y defensores del partido son seleccionados al azar. 
+                                                Si el equipo que lidera en el informe de medio tiempo es el equipo 
+                                                defensor durante el partido, el equipo ganador recibirá una 
+                                                bonificación de influencia de 1,5 veces.
+                                                `,
+                                                imgAlt: `
+                                                Imagen promocional de Splatoon 3 con Deep Cut, el trío de ídolos del juego. 
+                                                En el centro está Big Man, una raya blanca con expresión alegre, 
+                                                usando una banda tradicional en la cabeza. A su izquierda está Shiver, 
+                                                una Octoling con cabello azul y atuendo elegante de estilo japonés, 
+                                                sosteniendo un abanico.
+                                                `,
+                                                imgUrl: "/pictures/details/img5_sp3_profileInfoSection.jpg"
+                                            }
+                                        ]
+                                    }
+                                ]} />
                         </>} />
                     </Routes>
                 </main>

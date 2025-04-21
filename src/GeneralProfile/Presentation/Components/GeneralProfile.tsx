@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProfileSection from "./ProfileSection";
+import './style/generalProfile.css'
+import { useLocation } from "react-router-dom";
 
 interface GeneralProfileProps {
-    mainBackground: string,
     profilesSections: {
         idSection: string,
         mainTitle: string,
@@ -14,21 +15,42 @@ interface GeneralProfileProps {
             imgAlt?: string,
             imgUrl?: string,
         }[]
-    }[]
+    }[],
+    setMainBackground: React.Dispatch<React.SetStateAction<{
+        backgroundUrl: string;
+        backgroundPosition: string;
+        backgroundSize: string;
+        backgroundRepeat: string;
+        backgroundAttachment: string;
+    } | null>>,
+    mainBackground: {
+        backgroundUrl: string;
+        backgroundPosition: string;
+        backgroundSize: string;
+        backgroundRepeat: string;
+        backgroundAttachment: string;
+    } | null
 }
 
 const GeneralProfile = ({
     mainBackground,
-    profilesSections
+    profilesSections,
+    setMainBackground
 }: GeneralProfileProps) => {
+    const location = useLocation();
+
+    useEffect(() => {
+        setMainBackground(mainBackground)
+        return () => {
+            setMainBackground(null)
+        }
+    }, [location.pathname])
 
     return (
         <section
-            style={{
-                '--backgroundImage': `${mainBackground}`
-            } as React.CSSProperties}
+            className="GeneralProfile"
         >
-            <ul>
+            <ul className="GeneralProfile__profilesSections">
 
 
                 {
@@ -40,7 +62,9 @@ const GeneralProfile = ({
                         } = profileSection;
 
                         return (
-                            <li key={mainTitle}>
+                            <li
+                                className="GeneralProfile__profilesSections__sections"
+                                key={mainTitle}>
                                 <ProfileSection
                                     mainTitle={mainTitle}
                                     sections={sections}

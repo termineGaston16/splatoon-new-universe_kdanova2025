@@ -1,6 +1,19 @@
+import { useEffect } from 'react';
 import './style/gallery.css'
 
-export default function Gallery() {
+interface GalleryProps {
+    setMainBackground: React.Dispatch<React.SetStateAction<{
+        backgroundUrl: string;
+        backgroundPosition: string;
+        backgroundSize: string;
+        backgroundRepeat: string;
+        backgroundAttachment: string;
+    } | null>>
+}
+
+const Gallery = ({
+    setMainBackground
+}: GalleryProps) => {
 
     const EXTRA_WIDTH = '6em';
     const galleryContent: {
@@ -149,6 +162,8 @@ export default function Gallery() {
             }
         ]
 
+    useEffect(() => setMainBackground(null), []);
+
     return (
         <section className="Gallery">
             <h2 className="Gallery__title">Galería de Imágenes</h2>
@@ -182,3 +197,5 @@ export default function Gallery() {
         </section>
     );
 }
+
+export default Gallery;

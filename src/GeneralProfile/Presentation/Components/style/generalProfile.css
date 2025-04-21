@@ -1,0 +1,17 @@
+.GeneralProfile {
+    font-style: 16px;
+    width: 100%;
+
+    padding: 1em 0px;
+}
+
+.GeneralProfile__profilesSections {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+
+    gap: 1em;
+}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ProfileDataSelector from "../Elements/ProfileDataSelector";
 import './styles/profileSideBar.css'
 
@@ -44,6 +45,17 @@ const ProfileSideBar = ({
                         )
                     })
                 }
+                <li
+                    className="ProfileSideBar__selectors__selector">
+                    <Link
+                        to={'/'}
+                        aria-label="Regresar al Menú Principal"
+                        className="ProfileSideBar__selectors__selector--link">
+                        <span className="ProfileSideBar__selectors__selector__text">
+                            Volver
+                        </span>
+                    </Link>
+                </li>
             </ul>
         </aside>
     )

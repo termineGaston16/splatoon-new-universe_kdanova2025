@@ -111,7 +111,7 @@ const SidebarMain = ({
                             <span className="SidebarMain__navigation__list__item__text">SPLATOON 3</span>
                         </Link>
                     </li>
-                    <li
+                    {/* <li
                         onClick={() => callback()}
                         className="SidebarMain__navigation__list__item">
                         <Link
@@ -158,7 +158,7 @@ const SidebarMain = ({
                             />
                             <span className="SidebarMain__navigation__list__item__text">DEEP CUT</span>
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         </motion.aside >

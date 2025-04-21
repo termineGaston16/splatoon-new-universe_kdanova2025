@@ -1,0 +1,113 @@
+.ProfileSection {
+    font-size: 16px;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+
+    gap: 1em;
+}
+
+.ProfileSection__title {
+    width: 10em;
+    margin-top: 2em;
+
+    font-size: 1.5em;
+    text-align: center;
+
+    background-image: url('/pictures/details/subtitulo_ProfileSection.webp');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-radius: 5px;
+
+    color: white;
+    text-shadow: 2px 2px 0px black;
+}
+
+.ProfileSection__sections,
+.ProfileSection__sections__section {
+    width: 100%;
+}
+
+.ProfileSection__sections__section__container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.ProfileSection__sections__section__container__info {
+    background-color: rgba(0, 0, 0, 0.811);
+    padding: 1em;
+
+    border-radius: 1em;
+    color: rgb(255, 255, 255);
+
+    font-size: 14px;
+}
+
+.ProfileSection__sections__section__container__iframe {
+    border: 2px outset rgb(124, 246, 234);
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+    .ProfileSection__sections__section__container {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .ProfileSection__sections__section__container__info {
+        text-align: center !important;
+        order: 0 !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+    .ProfileSection__sections__section__container__iframe {
+        width: 17em;
+        height: 9em;
+    }
+
+    .ProfileSection__sections__section__container__img {
+        width: 17em;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+    .ProfileSection__sections__section__container__iframe {
+        width: 20em;
+        height: 12em;
+    }
+
+    .ProfileSection__sections__section__container__img {
+        width: 20em;
+    }
+}
+
+@media (min-width: 769px) {
+    .ProfileSection__sections__section__container {
+        flex-direction: row;
+        padding: 1em 0px;
+    }
+
+    .ProfileSection__sections__section__container__info {
+        width: 370px;
+    }
+
+    .ProfileSection__sections__section__container__iframe {
+        width: 370px;
+        height: 13em;
+    }
+
+    .ProfileSection__sections__section__container__img {
+        width: 370px;
+    }
+}

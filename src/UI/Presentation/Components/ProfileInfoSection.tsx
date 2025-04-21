@@ -5,6 +5,7 @@ interface ProfileInfoSectionProps {
     iframeTitle?: string,
     imgAlt?: string,
     imgUrl?: string,
+    orderText: number
 }
 
 const ProfileInfoSection = ({
@@ -13,16 +14,23 @@ const ProfileInfoSection = ({
     iframeUrl,
     iframeTitle,
     imgAlt,
-    imgUrl
+    imgUrl,
+    orderText
 }: ProfileInfoSectionProps) => {
     return (
-        <div>
-            <p>
+        <div className="ProfileSection__sections__section__container">
+            <p
+                style={{
+                    order: orderText,
+                    textAlign: `${orderText % 2 === 0 ? 'start' : 'end'}`
+                }}
+                className="ProfileSection__sections__section__container__info">
                 {info}
             </p>
             {
                 iframeAriaLabel && iframeUrl && iframeTitle
                     ? <iframe
+                        className="ProfileSection__sections__section__container__iframe"
                         title={iframeTitle}
                         role='iframe'
                         width="560"
@@ -31,6 +39,7 @@ const ProfileInfoSection = ({
                         src={iframeUrl} />
                     :
                     <img
+                        className="ProfileSection__sections__section__container__img"
                         src={imgUrl}
                         alt={imgAlt}
                         loading="lazy"

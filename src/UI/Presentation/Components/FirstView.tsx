@@ -1,6 +1,22 @@
+import { useEffect } from 'react'
 import './styles/firstView.css'
 
-export default function FirstView() {
+interface FirstViewProps {
+    setMainBackground: React.Dispatch<React.SetStateAction<{
+        backgroundUrl: string;
+        backgroundPosition: string;
+        backgroundSize: string;
+        backgroundRepeat: string;
+        backgroundAttachment: string;
+    } | null>>
+}
+
+const FirstView = ({
+    setMainBackground
+}: FirstViewProps) => {
+
+    useEffect(() => setMainBackground(null), [])
+
     return (
         <header className='FirstView'>
             <img
@@ -30,3 +46,5 @@ export default function FirstView() {
         </header>
     )
 }
+
+export default FirstView;
