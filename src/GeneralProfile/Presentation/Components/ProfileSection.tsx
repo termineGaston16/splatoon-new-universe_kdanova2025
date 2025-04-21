@@ -1,11 +1,13 @@
 import ProfileInfoSection from "../../../UI/Presentation/Components/ProfileInfoSection";
 
 interface ProfileSectionProps {
+    idSection: string,
     mainTitle: string,
     sections: {
         info: string,
         iframeAriaLabel?: string,
         iframeUrl?: string,
+        iframeTitle?: string,
         imgAlt?: string,
         imgUrl?: string,
     }[]
@@ -13,11 +15,12 @@ interface ProfileSectionProps {
 
 const ProfileSection = ({
     mainTitle,
-    sections
+    sections,
+    idSection
 }: ProfileSectionProps) => {
 
     return (
-        <article>
+        <article id={idSection}>
             <h2>{mainTitle}</h2>
             <ul>
                 {
@@ -26,6 +29,7 @@ const ProfileSection = ({
                             info,
                             iframeAriaLabel,
                             iframeUrl,
+                            iframeTitle,
                             imgAlt,
                             imgUrl
                         } = section;
@@ -37,6 +41,7 @@ const ProfileSection = ({
                                     info={info}
                                     iframeAriaLabel={iframeAriaLabel}
                                     iframeUrl={iframeUrl}
+                                    iframeTitle={iframeTitle}
                                     imgAlt={imgAlt}
                                     imgUrl={imgUrl}
                                 />

@@ -2,6 +2,7 @@ interface ProfileInfoSectionProps {
     info: string,
     iframeAriaLabel?: string,
     iframeUrl?: string,
+    iframeTitle?: string,
     imgAlt?: string,
     imgUrl?: string,
 }
@@ -10,6 +11,7 @@ const ProfileInfoSection = ({
     info,
     iframeAriaLabel,
     iframeUrl,
+    iframeTitle,
     imgAlt,
     imgUrl
 }: ProfileInfoSectionProps) => {
@@ -19,8 +21,9 @@ const ProfileInfoSection = ({
                 {info}
             </p>
             {
-                iframeAriaLabel && iframeUrl
+                iframeAriaLabel && iframeUrl && iframeTitle
                     ? <iframe
+                        title={iframeTitle}
                         role='iframe'
                         width="560"
                         height="315"
