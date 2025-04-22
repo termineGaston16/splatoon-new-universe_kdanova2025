@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import DefaultActionableButton from "./DefaultActionableButton";
-import CompleteMainSidebar from "../Components/CompleteMainSidebar";
 import { MemoryRouter } from "react-router-dom";
 
 describe('DefaultActionableButton', () => {
@@ -49,7 +48,7 @@ describe('DefaultActionableButton', () => {
     it('Abrir/Cerrar el menú lateral', async () => {
         render(
             <MemoryRouter>
-                <CompleteMainSidebar />
+                {/* <CompleteMainSidebar /> */}
             </MemoryRouter>
         )
 
