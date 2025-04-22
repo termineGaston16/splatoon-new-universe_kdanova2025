@@ -28,6 +28,7 @@ export default function MainFooter() {
                 <tr>
                     <td>
                         <a
+                            rel="noreferrer"
                             className="MainFooter__recognitions__title__link"
                             target="_blank"
                             href="https://x.com/SplatoonJP"
@@ -36,6 +37,7 @@ export default function MainFooter() {
                     </td>
                     <td>
                         <a
+                            rel="noreferrer"
                             className="MainFooter__recognitions__title__link"
                             target="_blank"
                             href="https://x.com/Nintendo"
@@ -46,6 +48,7 @@ export default function MainFooter() {
                 <tr>
                     <td>
                         <a
+                            rel="noreferrer"
                             className="MainFooter__recognitions__title__link"
                             target="_blank"
                             href="https://www.nintendo.com/jp/character/splatoon/en/index.html"
@@ -54,6 +57,7 @@ export default function MainFooter() {
                     </td>
                     <td>
                         <a
+                            rel="noreferrer"
                             className="MainFooter__recognitions__title__link"
                             target="_blank"
                             href="https://www.youtube.com/@NintendoAmerica/videos"
@@ -64,6 +68,7 @@ export default function MainFooter() {
                 <tr>
                     <td>
                         <a
+                            rel="noreferrer"
                             className="MainFooter__recognitions__title__link"
                             target="_blank"
                             href="https://www.nintendo.com/es-ar/store/products/splatoon-3-switch/"
@@ -72,6 +77,7 @@ export default function MainFooter() {
                     </td>
                     <td>
                         <a
+                            rel="noreferrer"
                             className="MainFooter__recognitions__title__link"
                             target="_blank"
                             href="https://www.nintendo.com/jp/index.html"
@@ -83,6 +89,7 @@ export default function MainFooter() {
                     <td></td>
                     <td>
                         <a
+                            rel="noreferrer"
                             className="MainFooter__recognitions__title__link"
                             target="_blank"
                             href="https://www.nintendo.com/jp/about_hp.html"
@@ -94,6 +101,7 @@ export default function MainFooter() {
                     <td></td>
                     <td>
                         <a
+                            rel="noreferrer"
                             className="MainFooter__recognitions__title__link"
                             target="_blank"
                             href="https://www.nintendo.com/es-ar/switch/"

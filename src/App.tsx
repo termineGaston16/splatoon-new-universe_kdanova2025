@@ -10,12 +10,13 @@ import FirstView from "./UI/Presentation/Components/FirstView";
 import FlowingBar from "./UI/Presentation/Elements/FlowingBar";
 import MainCovers from "./GeneralProfile/Presentation/Components/MainCovers";
 import MainFooter from "./UI/Presentation/Components/MainFooter";
-import Gallery from "./Gallery/Gallery";
-import ProfileSidebar from "./UI/Presentation/Components/ProfileSidebar";
-import GeneralProfile from "./GeneralProfile/Presentation/Components/GeneralProfile";
 
-const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"))
-const Offline = lazy(() => import("./UI/Presentation/Components/Offline"))
+const AlertInOnline = lazy(() => import("./UI/Presentation/Elements/AlertInOnline"));
+const Offline = lazy(() => import("./UI/Presentation/Components/Offline"));
+const Gallery = lazy(() => import("./Gallery/Gallery"));
+const ProfileSidebar = lazy(() => import("./UI/Presentation/Components/ProfileSidebar"));
+const GeneralProfile = lazy(() => import("./GeneralProfile/Presentation/Components/GeneralProfile"));
+
 
 export default function App() {
 
