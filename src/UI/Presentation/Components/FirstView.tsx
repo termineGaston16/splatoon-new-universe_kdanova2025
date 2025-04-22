@@ -25,7 +25,7 @@ const FirstView = ({
             <img
                 loading="lazy"
                 alt="Logo Principal de Splatoon New Universe"
-                src="/pictures/logos/splatoon-new-universe_logo-principal.png"
+                src="/pictures/logos/splatoon-new-universe_logo-principal.webp"
                 className='FirstView__mainLogo'
             />
 
