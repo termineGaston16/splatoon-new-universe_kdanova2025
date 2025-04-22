@@ -312,6 +312,7 @@ export default function App() {
                             />
 
                             <GeneralProfile
+                                mainTitleMeta='Splatoon - Splatoon New Universe'
                                 setMainBackground={setMainBackground}
                                 mainBackground={{
                                     backgroundUrl: '/pictures/backgrounds/splatoon1_profileSection.jpg',
@@ -613,6 +614,7 @@ export default function App() {
                             />
 
                             <GeneralProfile
+                                mainTitleMeta='Splatoon 2 - Splatoon New Universe'
                                 setMainBackground={setMainBackground}
                                 mainBackground={{
                                     backgroundUrl: '/pictures/backgrounds/splatoon2_profileSection.jpg',
@@ -943,6 +945,7 @@ export default function App() {
                             />
 
                             <GeneralProfile
+                                mainTitleMeta='Splatoon 3 - Splatoon New Universe'
                                 setMainBackground={setMainBackground}
                                 mainBackground={{
                                     backgroundUrl: '/pictures/backgrounds/splatoon3_profileSection.jpg',

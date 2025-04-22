@@ -162,7 +162,10 @@ const Gallery = ({
             }
         ]
 
-    useEffect(() => setMainBackground(null), []);
+    useEffect(() => {
+        document.title = 'Galería - Splatoon New Universe'
+        setMainBackground(null)
+    }, []);
 
     return (
         <section className="Gallery">

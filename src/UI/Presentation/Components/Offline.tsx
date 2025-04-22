@@ -6,6 +6,8 @@ export default function Offline() {
     const [showOffline, setShowOffline] = useState<boolean>(!navigator.onLine);
 
     useEffect(() => {
+        document.title = 'Offline - Splatoon New Universe'
+
         const handleOnline = () => {
             setTimeout(() => {
                 window.location.reload()

@@ -15,7 +15,10 @@ const FirstView = ({
     setMainBackground
 }: FirstViewProps) => {
 
-    useEffect(() => setMainBackground(null), [])
+    useEffect(() => {
+        document.title = 'Splatoon New Universe'
+        setMainBackground(null)
+    }, [])
 
     return (
         <header className='FirstView'>

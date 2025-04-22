@@ -4,6 +4,7 @@ import './style/generalProfile.css'
 import { useLocation } from "react-router-dom";
 
 interface GeneralProfileProps {
+    mainTitleMeta: string
     profilesSections: {
         idSection: string,
         mainTitle: string,
@@ -35,12 +36,14 @@ interface GeneralProfileProps {
 const GeneralProfile = ({
     mainBackground,
     profilesSections,
-    setMainBackground
+    setMainBackground,
+    mainTitleMeta
 }: GeneralProfileProps) => {
     const location = useLocation();
 
     useEffect(() => {
-        setMainBackground(mainBackground)
+        document.title = mainTitleMeta;
+        setMainBackground(mainBackground);
         return () => {
             setMainBackground(null)
         }
