@@ -8,8 +8,7 @@ describe('ProfileSection', () => {
         render(
             <ProfileSection
                 mainTitle={mainTitle}
-                sections={[]}
-            />
+                sections={[]} idSection={""} />
         )
 
         expect(
@@ -39,8 +38,7 @@ describe('ProfileSection', () => {
                         iframeAriaLabel: ariaLabel,
                         iframeUrl: url
                     },
-                ]}
-            />
+                ]} idSection={""} />
         )
 
         expect(

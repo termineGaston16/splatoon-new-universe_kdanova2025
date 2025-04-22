@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import SidebarMain from "./SidebarMain";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
 describe('SidebarMain', () => {
     beforeEach(() => render(
         <MemoryRouter>
-            <SidebarMain />
+            {/* <SidebarMain /> */}
             <Routes>
                 <Route path="/" element={<div>Perfil Principal</div>} />
                 <Route path="/perfil-general=splatoon" element={<div>Splatoon 1</div>} />

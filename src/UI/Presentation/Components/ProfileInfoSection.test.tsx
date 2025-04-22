@@ -12,8 +12,7 @@ describe('ProfileInfoSection', () => {
             <ProfileInfoSection
                 info={info}
                 iframeUrl='url'
-                iframeAriaLabel={iframeArialLabel}
-            />
+                iframeAriaLabel={iframeArialLabel} orderText={0} />
         )
 
         const iframe = screen.getByRole('iframe', {
@@ -34,8 +33,7 @@ describe('ProfileInfoSection', () => {
             <ProfileInfoSection
                 info=''
                 imgAlt={imgAlt}
-                imgUrl=''
-            />
+                imgUrl='' orderText={0} />
         )
 
         const img = screen.getByRole('img', {

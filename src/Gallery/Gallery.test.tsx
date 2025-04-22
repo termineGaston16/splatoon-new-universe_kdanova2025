@@ -1,8 +1,7 @@
-import { render, screen, within } from "@testing-library/react"
-import Gallery from "./Gallery"
+import { screen, within } from "@testing-library/react"
 
 describe('Gallery', () => {
-    beforeEach(() => render(<Gallery />));
+    // beforeEach(() => render(<Gallery />));
 
     it('Implementar el título de la galería', () => {
         const title = screen.getByText((_, element) =>

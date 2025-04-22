@@ -54,8 +54,7 @@ const GeneralProfileIdol = ({
                                     iframeAriaLabel={iframeAriaLabel}
                                     iframeUrl={iframeUrl}
                                     imgAlt={imgAlt}
-                                    imgUrl={imgUrl}
-                                />
+                                    imgUrl={imgUrl} orderText={0} />
                             </li>
                         </ul>
                     )

@@ -24,8 +24,7 @@ describe('MainCovers', () => {
                     ariaLabelCoverOne=""
                     ariaLabelCoverTwo=""
                     linkCoverOne=""
-                    linkCoverTwo=""
-                />
+                    linkCoverTwo="" idNav={""} />
             </MemoryRouter>
         )
 
@@ -52,8 +51,7 @@ describe('MainCovers', () => {
                     linkCoverOne={linkCover}
                     ariaLabelCoverOne={'Acceder al perfil Splatoon desde la página principal'}
                     ariaLabelCoverTwo=""
-                    linkCoverTwo=""
-                />
+                    linkCoverTwo="" idNav={""} />
 
                 <Routes>
                     <Route

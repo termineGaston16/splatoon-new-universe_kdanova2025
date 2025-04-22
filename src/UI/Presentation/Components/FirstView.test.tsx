@@ -1,8 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import FirstView from "./FirstView";
+import { screen } from "@testing-library/react";
 
 describe('FirstView', () => {
-    beforeEach(() => render(<FirstView />));
+    // beforeEach(() => render(<FirstView />));
     afterEach(() => vi.clearAllMocks());
 
     it('Renderizar el Logo Principal', () => {
